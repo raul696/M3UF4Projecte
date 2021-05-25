@@ -19,10 +19,10 @@ public class ProjectePOO {
              opcio = in.nextInt();
              Interface.mostrarMenu(menu,opcio);
              switch(opcio) {
-                 case 1: g.;break;
-                 case 2: g.;break;
-                 case 3: g.;break;
-                 case 4: g.;break;
+                 case 1: ;break;
+                 case 2: ;break;
+                 case 3: ;break;
+                 case 4: ;break;
                  case 0: break;
              }
          } while (opcio!=0);
