@@ -1,27 +1,24 @@
 
 public class Person {
-    private int id;
-    private String dni;
-    private String name;
-    private String surname;
+    protected int id;
+    protected String dni;
+    protected String name;
+    protected String surname1;
+    protected String surname2;
 
-    public Person(int id, String dni, String name, String surname) {
+    public Person(int id, String dni, String name, String surname1, String surname2) {
         this.id = id;
         this.dni = dni;
         this.name = name;
-        this.surname = surname;
+        this.surname1 = surname1;
+        this.surname2 = surname2;
     }
 }
 
 class Employer extends Person{
 
-    private int id;
-    private String dni;
-    private String name;
-    private String surname;
-
-    public Employer(int id, String dni, String name, String surname) {
-        super(id, dni, name, surname);
+    public Employer(int id, String dni, String name, String surname1, String surname2) {
+        super(id, dni, name, surname1, surname2);
 
     }
 
@@ -31,22 +28,28 @@ class Employer extends Person{
                 "id=" + id +
                 ", dni='" + dni + '\'' +
                 ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
+                ", surname1='" + surname1 + '\'' +
+                ", surname2='" + surname2 + '\'' +
                 '}';
     }
 }
 class Client extends Person{
     private String licence;
 
-    public Client(int id, String dni, String name, String surname,String licence) {
-        super(id, dni, name, surname);
+    public Client(int id, String dni, String name, String surname1, String surname2, String licence) {
+        super(id, dni, name, surname1, surname2);
         this.licence = licence;
     }
 
     @Override
     public String toString() {
         return "Client{" +
-                "licence='" + licence + '\'' +
+                "id=" + id +
+                ", dni='" + dni + '\'' +
+                ", name='" + name + '\'' +
+                ", surname1='" + surname1 + '\'' +
+                ", surname2='" + surname2 + '\'' +
+                ", licence='" + licence + '\'' +
                 '}';
     }
 }

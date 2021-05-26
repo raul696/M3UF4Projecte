@@ -1,15 +1,15 @@
-import javax.xml.crypto.Data;
+import java.time.LocalDateTime;
 
 public class Reservation {
 
     private int id;
     private int clientId;
     private int planeId;
-    private Date startDate;
-    private Date endDate;
+    private LocalDateTime startDate;
+    private LocalDateTime endDate;
 
 
-    public Reservation(int id, int clientId, int planeId, Date startDate, Date endDate) {
+    public Reservation(int id, int clientId, int planeId, LocalDateTime startDate, LocalDateTime endDate) {
         this.id = id;
         this.clientId = clientId;
         this.planeId = planeId;
