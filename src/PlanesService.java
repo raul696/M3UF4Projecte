@@ -54,4 +54,17 @@ public class PlanesService {
         }
         return listModel;
     }
+    public ArrayList<Reservation> getAllReservations() {
+        ArrayList<Reservation> listReservation = new ArrayList<>();
+        try {
+            Statement stmt= connection.createStatement();
+            ResultSet rs=stmt.executeQuery("SELECT * FROM reservations");
+            while(rs.next()){
+                Reservation r =new Reservation(rs.getInt(1),rs.getInt(2),rs.getInt(3),rs.getDate(4),rs.getDate(5));
+                listReservation.add(r);
+            }
+        } catch(Exception e){
+            System.out.println(e);
+        }
+        return listReservation;
 }
