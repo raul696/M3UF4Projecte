@@ -13,16 +13,28 @@ public class ProjectePOO {
                  "4-Esborrar",
                  "0-Sortir",
          };
-         int opcio = in.nextInt();
+         int opcio=0;
+         Interface i = new Interface();
          GestorDades g = new GestorDades();
          do {
-             Interface.mostrarMenu(menu,opcio);
+             i.mostrarMenu(menu);
+             opcio = in.nextInt();
              switch(opcio) {
-                 case 1: ;break;
-                 case 2: ;break;
-                 case 3: ;break;
-                 case 4: ;break;
-                 case 0: break;
+                 case 1:
+                     ;
+                 break;
+                 case 2:
+                     System.out.println();
+                     i.menuConsultes();
+                     break;
+                 case 3:
+                     ;
+                 break;
+                 case 4:
+                     ;
+                 break;
+                 case 0:
+                     break;
              }
              opcio = in.nextInt();
          } while (opcio!=0);
