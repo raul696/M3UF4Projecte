@@ -13,10 +13,9 @@ public class ProjectePOO {
                  "4-Esborrar",
                  "0-Sortir",
          };
-         int opcio ;
+         int opcio = in.nextInt();
          GestorDades g = new GestorDades();
          do {
-             opcio = in.nextInt();
              Interface.mostrarMenu(menu,opcio);
              switch(opcio) {
                  case 1: ;break;
@@ -25,6 +24,7 @@ public class ProjectePOO {
                  case 4: ;break;
                  case 0: break;
              }
+             opcio = in.nextInt();
          } while (opcio!=0);
      }
 }
