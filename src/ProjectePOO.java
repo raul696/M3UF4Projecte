@@ -23,7 +23,7 @@ public class ProjectePOO {
             switch (opcio) {
                 case 1:
                     System.out.println();
-                    i.menuCarregarDades();
+                    g.consultarDades();
 
                     break;
                 case 2:
