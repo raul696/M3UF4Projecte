@@ -1,48 +1,51 @@
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class ProjectePOO {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
 
         Scanner in = new Scanner(System.in);
         String[] menu = {
                 "MENÚ",
-                "1-Carregar dades",
-                "2-Consultar",
-                "3-Afegir",
-                "4-Esborrar",
+                "1-Consultar",
+                "2-Afegir",
+                "3-Esborrar",
                 "0-Sortir",
         };
-        Interface i = new Interface();
         GestorDades g = new GestorDades();
-
+        PlanesService p = new PlanesService();
         int opcio = 0;
+        int opcio2=0;
+        p.openConnection();
         do {
-            i.mostrarMenu(menu);
+            Interface.mostrarMenu(menu);
             opcio = in.nextInt();
             switch (opcio) {
                 case 1:
                     System.out.println();
-                    g.consultarDades();
-
+                    Interface.menuConsultes();
+                    opcio2= in.nextInt();
+                    if(opcio2==1){
+                    //    g.getAllPlanes();
+                    }else if(opcio2==2){
+                    //    g.getAllModel;
+                    }
                     break;
                 case 2:
                     System.out.println();
-                    i.menuConsultes();
+                    Interface.menuAfegir();
                     break;
                 case 3:
                     System.out.println();
-                    i.menuAfegir();
-                    break;
-                case 4:
-                    System.out.println();
-                    i.menuEsborrar();
+                    Interface.menuEsborrar();
                     break;
                 case 0:
+                    p.closeConnection();
                     break;
 
                 default:
-                    System.out.println("Nomes nombres del 0 al 4");
+                    System.out.println("Nomes nombres del 0 al 3");
             }
         }while (opcio != 0) ;
     }

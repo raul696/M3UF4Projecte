@@ -5,21 +5,6 @@ public class Interface {
             System.out.println(menu[i]);
         }
     }
-    public static void menuCarregarDades() {
-        String[] menuCarregarDades = {
-                "¿Quines dades vols carregar?",
-                "1-Clients",
-                "2-Empleats",
-                "3-Llicencies",
-                "4-Models",
-                "5-Avions",
-                "6-Reserves"
-
-        };
-        for (int i = 0; i < menuCarregarDades.length; i++) {
-            System.out.println(menuCarregarDades[i]);
-        }
-    }
     public static void menuConsultes() {
         String[] menuConsultes = {
                 "CONSULTES",
@@ -38,10 +23,9 @@ public class Interface {
                 "¿Que vols afegir?",
                 "1-Clients",
                 "2-Empleats",
-                "3-Llicencies",
-                "4-Models",
-                "5-Avions",
-                "6-Reserves"
+                "3-Models",
+                "4-Avions",
+                "5-Reserves"
 
         };
         for (int i = 0; i < menuAfegir.length; i++) {
@@ -53,10 +37,9 @@ public class Interface {
                 "¿Que vols esborrar?",
                 "1-Clients",
                 "2-Empleats",
-                "3-Llicencies",
-                "4-Models",
-                "5-Avions",
-                "6-Reserves"
+                "3-Models",
+                "4-Avions",
+                "5-Reserves"
 
         };
         for (int i = 0; i < menuEsborrar.length; i++) {
