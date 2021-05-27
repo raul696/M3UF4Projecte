@@ -16,4 +16,35 @@ public class Reservation {
         this.startDate = startDate;
         this.endDate = endDate;
     }
+
+    @Override
+    public String toString() {
+        return "Reservation{" +
+                "id=" + id +
+                ", clientId=" + clientId +
+                ", planeId=" + planeId +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                '}';
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getClientId() {
+        return clientId;
+    }
+
+    public int getPlaneId() {
+        return planeId;
+    }
+
+    public LocalDateTime getStartDate() {
+        return startDate;
+    }
+
+    public LocalDateTime getEndDate() {
+        return endDate;
+    }
 }
