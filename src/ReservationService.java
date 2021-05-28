@@ -6,12 +6,12 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class ReservationService {
+       connection c = new connection();
     public ArrayList<Reservation> getAllReservations() {
-        PlanesService p = new PlanesService();
         ArrayList<Reservation> listReservation = new ArrayList<>();
 
         try {
-            Statement stmt = p.connection.createStatement();
+            Statement stmt = c.getConnection().createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM reservations");
             String date = String.valueOf(rs.getDate(4));
             while (rs.next()) {

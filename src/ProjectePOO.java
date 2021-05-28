@@ -19,7 +19,8 @@ public class ProjectePOO {
         ReservationService r = new ReservationService();
         int opcio = 0;
         int opcio2=0;
-        p.openConnection();
+        connection c = new connection();
+        c.openConnection();
         do {
             Interface.mostrarMenu(menu);
             opcio = in.nextInt();
@@ -45,7 +46,7 @@ public class ProjectePOO {
                     Interface.menuEsborrar();
                     break;
                 case 0:
-                    p.closeConnection();
+                    c.closeConnection();
                     break;
 
                 default:
