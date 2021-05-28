@@ -1,11 +1,13 @@
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
 public class ModelsService {
     PlanesService p = new PlanesService();
-    public ArrayList<Model> getAllModels() {
+    public ArrayList<Model> getAllModels() throws SQLException {
         ArrayList<Model> listModel = new ArrayList<>();
+        p.openConnection();
         try {
             Statement stmt = p.connection.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM models");

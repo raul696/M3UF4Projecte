@@ -1,3 +1,5 @@
+import java.sql.Date;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 public class Reservation {
@@ -5,11 +7,11 @@ public class Reservation {
     private int id;
     private int clientId;
     private int planeId;
-    private LocalDateTime startDate;
-    private LocalDateTime endDate;
+    private Timestamp startDate;
+    private Timestamp endDate;
 
 
-    public Reservation(int id, int clientId, int planeId, LocalDateTime startDate, LocalDateTime endDate) {
+    public Reservation(int id, int clientId, int planeId, Timestamp startDate, Timestamp endDate) {
         this.id = id;
         this.clientId = clientId;
         this.planeId = planeId;
@@ -40,11 +42,11 @@ public class Reservation {
         return planeId;
     }
 
-    public LocalDateTime getStartDate() {
+    public Timestamp getStartDate() {
         return startDate;
     }
 
-    public LocalDateTime getEndDate() {
+    public Timestamp getEndDate() {
         return endDate;
     }
 }

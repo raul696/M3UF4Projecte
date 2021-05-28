@@ -15,6 +15,8 @@ public class ProjectePOO {
         };
         GestorDades g = new GestorDades();
         PlanesService p = new PlanesService();
+        ModelsService m = new ModelsService();
+        ReservationService r = new ReservationService();
         int opcio = 0;
         int opcio2=0;
         p.openConnection();
@@ -27,9 +29,11 @@ public class ProjectePOO {
                     Interface.menuConsultes();
                     opcio2= in.nextInt();
                     if(opcio2==1){
-                    //    g.getAllPlanes();
+                        p.getAllPlanes();
                     }else if(opcio2==2){
-                    //    g.getAllModel;
+                       m.getAllModels();
+                    }else if(opcio2==3){
+                        r.getAllReservations();
                     }
                     break;
                 case 2:
