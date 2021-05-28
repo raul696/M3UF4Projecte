@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class ClientsService {
     connection c = new connection();
-    public ArrayList<Client> getAllClients() {
+    public void getAllClients() {
         ArrayList<Client> listClient = new ArrayList<>();
         try {
             Statement stmt= c.getConnection().createStatement();
@@ -16,6 +16,9 @@ public class ClientsService {
         } catch(Exception e){
             System.out.println(e);
         }
-        return listClient;
+        for (Client c :listClient
+        ) {
+            System.out.println(c);
+        };
     }
 }

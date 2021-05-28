@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class ReservationService {
        connection c = new connection();
-    public ArrayList<Reservation> getAllReservations() {
+    public void getAllReservations() {
         ArrayList<Reservation> listReservation = new ArrayList<>();
 
         try {
@@ -21,6 +21,9 @@ public class ReservationService {
         } catch (Exception e) {
             System.out.println(e);
         }
-        return listReservation;
+        for (Reservation r :listReservation
+        ) {
+            System.out.println(r);
+        };
     }
 }

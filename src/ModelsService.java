@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class ModelsService {
     connection c = new connection();
-    public ArrayList<Model> getAllModels() throws SQLException {
+    public void getAllModels() throws SQLException {
         ArrayList<Model> listModel = new ArrayList<>();
         c.getConnection();
         try {
@@ -18,7 +18,10 @@ public class ModelsService {
         } catch (Exception e) {
             System.out.println(e);
         }
-        return listModel;
+        for (Model m :listModel
+        ) {
+            System.out.println(m);
+        };
     }
 
 }
