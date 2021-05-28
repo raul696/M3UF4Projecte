@@ -14,13 +14,9 @@ public class ProjectePOO {
                 "0-Sortir",
         };
         GestorDades g = new GestorDades();
-        PlanesService p = new PlanesService();
-        ModelsService m = new ModelsService();
-        ReservationService r = new ReservationService();
         int opcio = 0;
         int opcio2=0;
-        connection c = new connection();
-        c.openConnection();
+
         do {
             Interface.mostrarMenu(menu);
             opcio = in.nextInt();
@@ -30,11 +26,11 @@ public class ProjectePOO {
                     Interface.menuConsultes();
                     opcio2= in.nextInt();
                     if(opcio2==1){
-                        p.getAllPlanes();
+                     //   p.getAllPlanes();
                     }else if(opcio2==2){
-                       m.getAllModels();
+                       //m.getAllModels();
                     }else if(opcio2==3){
-                        r.getAllReservations();
+                        //r.getAllReservations();
                     }
                     break;
                 case 2:
@@ -46,7 +42,6 @@ public class ProjectePOO {
                     Interface.menuEsborrar();
                     break;
                 case 0:
-                    c.closeConnection();
                     break;
 
                 default:

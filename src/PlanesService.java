@@ -2,7 +2,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class PlanesService {
-    connection c = new connection();
+    Connection c = new Connection();
     public void getAllPlanes(){
         c.getConnection();
         ArrayList<Plane> listPlane = new ArrayList<>();

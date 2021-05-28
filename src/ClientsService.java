@@ -3,7 +3,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class ClientsService {
-    connection c = new connection();
+    Connection c = new Connection();
     public void getAllClients() {
         ArrayList<Client> listClient = new ArrayList<>();
         try {

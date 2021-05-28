@@ -4,7 +4,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class ModelsService {
-    connection c = new connection();
+    Connection c = new Connection();
     public void getAllModels() throws SQLException {
         ArrayList<Model> listModel = new ArrayList<>();
         c.getConnection();

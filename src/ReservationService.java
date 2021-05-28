@@ -1,12 +1,9 @@
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class ReservationService {
-       connection c = new connection();
+       Connection c = new Connection();
     public void getAllReservations() {
         ArrayList<Reservation> listReservation = new ArrayList<>();
 
