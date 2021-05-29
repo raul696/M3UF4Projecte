@@ -3,7 +3,6 @@ import java.util.Scanner;
 
 public class FunctionTEST {
     public static void main(String[] args) throws SQLException {
-
         Scanner in = new Scanner(System.in);
         String[] menu = {
                 "MENÚ",
@@ -16,7 +15,7 @@ public class FunctionTEST {
         g.startConnection();
         int opcio = 0;
         int opcio2=0;
-
+        g.startConnection();
         do {
             Interface.mostrarMenu(menu);
             opcio = in.nextInt();
@@ -26,22 +25,29 @@ public class FunctionTEST {
                     Interface.menuConsultes();
                     opcio2= in.nextInt();
                     if(opcio2==1){
-                     //   p.getAllPlanes();
+                        g.getAllPlanes();
                     }else if(opcio2==2){
                        g.getAllModels();
                     }else if(opcio2==3){
-                        //r.getAllReservations();
+                        g.getAllReservations();
+                    } else if (opcio2==4){
+                        g.getAllClients();
                     }
                     break;
                 case 2:
                     System.out.println();
                     Interface.menuAfegir();
+                    opcio2 = in.nextInt();
+                    if (opcio2 == 1){
+                        g.insertClientsInfo();
+                    }
                     break;
                 case 3:
                     System.out.println();
                     Interface.menuEsborrar();
                     break;
                 case 0:
+                    Connection.openConnection().close();
                     break;
 
                 default:

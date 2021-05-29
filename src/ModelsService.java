@@ -1,11 +1,11 @@
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.sql.Connection;
+
 
 public class ModelsService {
-
     public ArrayList<Model> getAllModels(Connection conn) throws SQLException {
         ArrayList<Model> listModel = new ArrayList<>();
         try {

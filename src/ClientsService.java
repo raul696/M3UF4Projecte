@@ -1,11 +1,11 @@
+import java.sql.*;
 import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.ArrayList;
+
 
 public class ClientsService {
 
-    public void getAllClients(Connection conn) {
+    public ArrayList<Client> getAllClients(Connection conn) throws SQLException {
         ArrayList<Client> listClient = new ArrayList<>();
         try {
             Statement stmt= conn.createStatement();
@@ -17,9 +17,29 @@ public class ClientsService {
         } catch(Exception e){
             System.out.println(e);
         }
-        for (Client c :listClient
-        ) {
-            System.out.println(c);
-        };
+        return listClient;
+    }
+
+    public void insertClients(String dni, String name, String surname1, String surname2, String licence, Connection conn) {
+        try {
+
+            String query = "INSERT INTO clients (dni, name, surname1, surname2, licence_type) " +
+                    "VALUES ( ?,?,?,?,?)" ;
+
+
+            PreparedStatement stmt = conn.prepareStatement(query);
+
+            stmt.setString(1,dni);
+            stmt.setString(2,name);
+            stmt.setString(3,surname1);
+            stmt.setString(4,surname2);
+            stmt.setString(5,licence);
+
+            stmt.execute();
+
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
     }
 }

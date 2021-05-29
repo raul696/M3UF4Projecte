@@ -1,9 +1,10 @@
 import java.sql.*;
-import java.sql.Connection;
 import java.util.ArrayList;
+import java.sql.Connection;
 
 public class PlanesService {
-    public void getAllPlanes(Connection conn){
+
+    public ArrayList<Plane> getAllPlanes(Connection conn) throws SQLException{
         ArrayList<Plane> listPlane = new ArrayList<>();
         try {
             Statement stmt = conn.createStatement();
@@ -18,6 +19,7 @@ public class PlanesService {
         for (Plane p :listPlane
              ) {
             System.out.println(p);
-        };
+        }
+        return listPlane;
     }
 }
