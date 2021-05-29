@@ -30,7 +30,7 @@ public class ProjectePOO {
                        g.getAllModels();
                     }else if(opcio2==3){
                         g.getAllReservations();
-                    } else {
+                    } else if (opcio2==4){
                         g.getAllClients();
                     }
                     break;
