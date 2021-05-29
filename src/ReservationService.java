@@ -1,14 +1,15 @@
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.sql.Connection;
+
 
 public class ReservationService {
-       Connection c = new Connection();
-    public void getAllReservations() {
+    public ArrayList<Reservation> getAllReservations(Connection conn) throws SQLException {
         ArrayList<Reservation> listReservation = new ArrayList<>();
-
         try {
-            Statement stmt = c.getConnection().createStatement();
+            Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM reservations");
             String date = String.valueOf(rs.getDate(4));
             while (rs.next()) {
@@ -18,9 +19,6 @@ public class ReservationService {
         } catch (Exception e) {
             System.out.println(e);
         }
-        for (Reservation r :listReservation
-        ) {
-            System.out.println(r);
-        };
+        return listReservation;
     }
 }
