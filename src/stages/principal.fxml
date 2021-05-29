@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <MenuBar fx:id="topMenu">
+      <Menu fx:id="opcioMenuAvions111" text="Reserves" />
+      <Menu fx:id="opcioMenuAvions" text="Avions" />
+      <Menu fx:id="opcioMenuAvions1" text="Clients" />
+      <Menu fx:id="opcioMenuAvions11" text="Empleats" />
+   </MenuBar>
+   <AnchorPane prefHeight="701.0" prefWidth="1000.0" />
+</VBox>

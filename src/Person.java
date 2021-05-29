@@ -1,4 +1,3 @@
-
 public class Person {
     protected int id;
     protected String dni;

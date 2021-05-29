@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-min-width: 270; -fx-min-height: 250; -fx-pref-height: 250; -fx-pref-width: 270;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+   <Label layoutX="38.0" layoutY="78.0" text="Introdueix el teu DNI:">
+      <font>
+         <Font name="Consolas" size="16.0" />
+      </font></Label>
+   <TextField fx:id="dniTextInput" alignment="CENTER" layoutX="56.0" layoutY="125.0" prefHeight="26.0" prefWidth="157.0" promptText="DNI" />
+   <Button fx:id="accessClientButton" layoutX="26.0" layoutY="188.0" onAction="#login" text="Accés de client" />
+   <Label fx:id="messageBox" alignment="CENTER" layoutX="14.0" layoutY="24.0" prefHeight="26.0" prefWidth="241.0" style="-fx-background-color: #ff9696;" textAlignment="JUSTIFY" visible="false" />
+   <Button fx:id="accessEmpleatButton" layoutX="141.0" layoutY="188.0" onAction="#login" text="Accés d'empleat" />
+</AnchorPane>

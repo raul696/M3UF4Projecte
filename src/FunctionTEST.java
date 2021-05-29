@@ -1,8 +1,7 @@
-
 import java.sql.SQLException;
 import java.util.Scanner;
 
-public class ProjectePOO {
+public class FunctionTEST {
     public static void main(String[] args) throws SQLException {
 
         Scanner in = new Scanner(System.in);
@@ -14,6 +13,7 @@ public class ProjectePOO {
                 "0-Sortir",
         };
         GestorDades g = new GestorDades();
+        g.startConnection();
         int opcio = 0;
         int opcio2=0;
 
@@ -28,7 +28,7 @@ public class ProjectePOO {
                     if(opcio2==1){
                      //   p.getAllPlanes();
                     }else if(opcio2==2){
-                       //m.getAllModels();
+                       g.getAllModels();
                     }else if(opcio2==3){
                         //r.getAllReservations();
                     }

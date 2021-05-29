@@ -1,4 +1,3 @@
-
 public class Plane {
     private int id;
     private String registrationCode;
