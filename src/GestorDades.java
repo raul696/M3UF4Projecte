@@ -83,7 +83,31 @@ public class GestorDades {
             if (correcto){
                 c.insertClients(dni,name,surname1,surname2,licence,conn);
             } else
-                System.out.println("Los datos son incorrectos");
+                System.out.println("Les dades son incorrectes");
+        }
+    }
+    public void insertPlanesInfo() throws SQLException{
+        PlanesService p = new PlanesService();
+        Scanner in = new Scanner(System.in);
+        int id;
+        String registrationCode;
+        String model;
+        String mainColor;
+        int hoursFlied;
+        System.out.println("Introdueix el ID de l'avió");
+        id = in.nextInt();
+        System.out.println("Introdueix el codi de l'avió");
+        registrationCode= in.next();
+        System.out.println("Introdueix el model de l'avió");
+        model = in.next();
+        System.out.println("Introdueix el color principal de l'avió");
+        mainColor = in.next();
+        System.out.println("Introdueix les hores volades de l'avió");
+        hoursFlied= in.nextInt();
+        if(){
+            p.insertPlane(id,registrationCode,model,mainColor,hoursFlied,conn);
+        }else{
+            System.out.println("Les dades son incorrectes ");
         }
     }
 }

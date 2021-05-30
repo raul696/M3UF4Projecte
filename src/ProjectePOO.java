@@ -40,6 +40,8 @@ public class ProjectePOO {
                     opcio2 = in.nextInt();
                     if (opcio2 == 1){
                         g.insertClientsInfo();
+                    }else if(opcio2==2){
+                        g.insertPlanesInfo();
                     }
                     break;
                 case 3:
