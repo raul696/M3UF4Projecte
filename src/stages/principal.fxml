@@ -3,12 +3,29 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <MenuBar fx:id="topMenu">
-      <Menu fx:id="opcioMenuAvions111" text="Reserves" />
-      <Menu fx:id="opcioMenuAvions" text="Avions" />
-      <Menu fx:id="opcioMenuAvions1" text="Clients" />
-      <Menu fx:id="opcioMenuAvions11" text="Empleats" />
-   </MenuBar>
-   <AnchorPane prefHeight="701.0" prefWidth="1000.0" />
-</VBox>
+<BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1001.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+      <top>
+         <MenuBar BorderPane.alignment="CENTER">
+            <Menu text="Reserves">
+               <items>
+                  <MenuItem fx:id="reservesView" mnemonicParsing="false" onAction="#changeView" text="Gestió de Reserves" />
+               </items>
+            </Menu>
+            <Menu text="Clients">
+               <items>
+                  <MenuItem fx:id="clientsView" mnemonicParsing="false" onAction="#changeView" text="Gestió de Clients" />
+               </items>
+            </Menu>
+            <Menu fx:id="opcioMenuClients" text="Empleats">
+               <items>
+                  <MenuItem fx:id="empleatsView" mnemonicParsing="false" onAction="#changeView" text="Gestió d'Empleats" />
+               </items>
+            </Menu>
+            <Menu text="Avions">
+               <items>
+                  <MenuItem fx:id="avionsView" mnemonicParsing="false" onAction="#changeView" text="Gestió d'Avions" />
+               </items>
+            </Menu>
+         </MenuBar>
+      </top>
+   </BorderPane>

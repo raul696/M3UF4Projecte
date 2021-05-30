@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-min-width: 270; -fx-min-height: 250; -fx-pref-height: 250; -fx-pref-width: 270;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-min-width: 270; -fx-min-height: 250; -fx-pref-height: 250; -fx-pref-width: 270;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginController">
    <Label layoutX="38.0" layoutY="78.0" text="Introdueix el teu DNI:">
       <font>
          <Font name="Consolas" size="16.0" />

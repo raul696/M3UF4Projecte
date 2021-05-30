@@ -1,13 +1,14 @@
 import java.sql.SQLException;
-import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class GestorDades {
     PlanesService p = new PlanesService();
     ModelsService m = new ModelsService();
     ReservationService r = new ReservationService();
     ClientsService c = new ClientsService();
-    java.sql.Connection  conn;
+    EmployeeService e = new EmployeeService();
+    static java.sql.Connection conn;
 
     public void startConnection() throws SQLException {
        conn = Connection.openConnection();
@@ -24,36 +25,56 @@ public class GestorDades {
         }
     }
 
-    public void getAllPlanes(){
+    public ArrayList<Plane> getAllPlanes(){
         try {
-            ArrayList<Plane> listPlane = p.getAllPlanes(conn);
-            for (Plane p :listPlane) {
-                System.out.println(p);
-            }
+            return p.getAllPlanes(conn);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+        return null;
     }
 
-    public void getAllReservations(){
+    public ArrayList<Reservation> getAllReservations(){
         try {
             ArrayList<Reservation> listReservation = r.getAllReservations(conn);
             for (Reservation r :listReservation) {
                 System.out.println(r);
             }
+            return listReservation;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+        return null;
     }
-    public void getAllClients(){
+
+    public Client getClientByDni(String dni) throws SQLException {
+        return c.getClientByDni(conn, dni);
+    }
+
+    public ArrayList<Client> getAllClients(){
         try {
             ArrayList<Client> listClient = c.getAllClients(conn);
-            for (Client c :listClient) {
+            for (Person c : listClient) {
                 System.out.println(c);
             }
+            return listClient;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+        return null;
+    }
+
+    public ArrayList<Employee> getAllEmployee(){
+        try {
+            ArrayList<Employee> listEmployee = e.getAllEmployee(conn);
+            for (Person c : listEmployee) {
+                System.out.println(c);
+            }
+            return listEmployee;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return null;
     }
 
     public void insertClientsInfo() throws SQLException {

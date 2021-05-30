@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="701.0" prefWidth="1000.0" translateZ="1.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+    <children>
+        <TableView fx:id="empleatsTable" layoutX="70.0" layoutY="332.0" prefHeight="318.0" prefWidth="859.0">
+            <columns>
+                <TableColumn fx:id="idEmpleatCol" prefWidth="108.20001220703125" text="ID Empleat" />
+                <TableColumn fx:id="dniEmpleatCol" prefWidth="108.20001220703125" text="DNI" />
+                <TableColumn fx:id="nomEmpleatCol" prefWidth="154.39999389648438" text="Nom" />
+                <TableColumn fx:id="cognom1EmpleatCol" prefWidth="238.79998779296875" text="Cognom 1" />
+                <TableColumn fx:id="cognom2EmpleatCol" prefWidth="248.4000244140625" text="Cognom 2" />
+            </columns>
+        </TableView>
+      <Button layoutX="70.0" layoutY="285.0" mnemonicParsing="false" onAction="#showAllEmployee" text="Mostrar tots els empleats" />
+    </children></AnchorPane>

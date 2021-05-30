@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="701.0" prefWidth="1000.0" translateZ="1.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+    <children>
+        <TableView fx:id="clientsTable" layoutX="70.0" layoutY="332.0" prefHeight="318.0" prefWidth="862.0">
+            <columns>
+                <TableColumn fx:id="idClientCol" prefWidth="108.20001220703125" text="ID Person.Client" />
+                <TableColumn fx:id="dniClientCol" prefWidth="108.20001220703125" text="DNI" />
+                <TableColumn fx:id="nomClientCol" prefWidth="154.39999389648438" text="Nom" />
+                <TableColumn fx:id="cognom1ClientCol" prefWidth="191.39999389648438" text="Cognom 1" />
+                <TableColumn fx:id="cognom2ClientCol" prefWidth="200.5999755859375" text="Cognom 2" />
+                <TableColumn fx:id="llicenciaClientCol" prefWidth="94.4000122070313" text="Llicencia" />
+            </columns>
+        </TableView>
+      <Button fx:id="showAllClients" layoutX="70.0" layoutY="287.0" mnemonicParsing="false" onAction="#showAllClients" text="Mostra tots els clients" />
+    </children></AnchorPane>

@@ -15,7 +15,6 @@ public class FunctionTEST {
         g.startConnection();
         int opcio = 0;
         int opcio2=0;
-        g.startConnection();
         do {
             Interface.mostrarMenu(menu);
             opcio = in.nextInt();

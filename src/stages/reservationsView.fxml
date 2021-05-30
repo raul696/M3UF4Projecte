@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="701.0" prefWidth="1000.0" translateZ="1.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+    <children>
+        <TableView fx:id="reservesTable" layoutX="81.0" layoutY="335.0" prefHeight="318.0" prefWidth="826.0">
+            <columns>
+                <TableColumn fx:id="idReservaCol" prefWidth="93.79998779296875" text="ID Reserva" />
+                <TableColumn fx:id="idClientReservaCol" prefWidth="363.00001525878906" text="ID Client" />
+                <TableColumn fx:id="idAvioReservaCol" prefWidth="82.0" text="ID Avió" />
+                <TableColumn fx:id="dataIniciReservaCol" prefWidth="148.0" text="Data Inici" />
+                <TableColumn fx:id="dataFiReservaCol" prefWidth="137.60001220703123" text="Data Fi" />
+            </columns>
+        </TableView>
+      <Button layoutX="81.0" layoutY="285.0" mnemonicParsing="false" onAction="#showAllReservations" text="Mostrar totes les reserves" />
+    </children></AnchorPane>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="34.0" prefWidth="1000.0" translateZ="1.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+   <children>
+      <Label layoutX="20.0" layoutY="7.0" text="Nom complet:">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <Label fx:id="nomCompletLabel" layoutX="120.0" layoutY="7.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="600.0" layoutY="7.0" text="DNI:">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <Label fx:id="dniLabel" layoutX="635.0" layoutY="7.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Line endX="980.0" layoutX="20.0" startX="-19.999988555908203" />
+   </children></AnchorPane>

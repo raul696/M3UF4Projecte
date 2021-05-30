@@ -20,6 +20,23 @@ public class ClientsService {
         return listClient;
     }
 
+    public Client getClientByDni(Connection conn, String dni) throws SQLException {
+        Client c = null;
+        try {
+            Statement stmt= conn.createStatement();
+            ResultSet rs=stmt.executeQuery("SELECT * FROM clients WHERE dni=\"" + dni + '"');
+
+            if (rs.next()){
+                c = new Client(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6));
+
+            }
+
+            }catch (Exception e){
+            System.out.println(e);
+        }
+        return c;
+    }
+
     public void insertClients(String dni, String name, String surname1, String surname2, String licence, Connection conn) {
         try {
 
