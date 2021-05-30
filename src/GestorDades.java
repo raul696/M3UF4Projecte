@@ -104,7 +104,7 @@ public class GestorDades {
         mainColor = in.next();
         System.out.println("Introdueix les hores volades de l'avió");
         hoursFlied= in.nextInt();
-        if(){
+        if(id<=99 && registrationCode.length()<=10 && model.length()<=35 && mainColor.length() <=15 ){
             p.insertPlane(id,registrationCode,model,mainColor,hoursFlied,conn);
         }else{
             System.out.println("Les dades son incorrectes ");
