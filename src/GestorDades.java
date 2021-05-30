@@ -110,4 +110,44 @@ public class GestorDades {
             System.out.println("Les dades son incorrectes ");
         }
     }
+    public void insertModelsInfo() throws SQLException{
+        ModelsService m = new ModelsService();
+        Scanner in = new Scanner(System.in);
+        int id;
+        String modelName;
+        String brand;
+        short pax ;
+        String licenceType;
+        float fuelCapacity;
+        short maxSpeed;
+        int consumPerHour;
+        int maxTakeoffWeight;
+        int emptyWeight;
+
+        System.out.println("Introdueix el ID del model");
+        id = in.nextInt();
+        System.out.println("Introdueix el nom del model");
+        modelName= in.next();
+        System.out.println("Introdueix la marca de l'avió");
+        brand = in.next();
+        System.out.println("Introdueix la capacitat de seients de l'avió");
+        pax = in.nextShort();
+        System.out.println("Introdueix el tipus de licencia");
+        licenceType = in.next();
+        System.out.println("Introdueix la capacitat màxima de litres de gasoil");
+        fuelCapacity = in.nextFloat();
+        System.out.println("Introdueix la velocitat màxima de l'avió");
+        maxSpeed = in.nextShort();
+        System.out.println("Introdueix el consum per hora de gasoil");
+        consumPerHour = in.nextInt();
+        System.out.println("Introdueix el pes màxim de l'avió");
+        maxTakeoffWeight = in.nextInt();
+        System.out.println("Introdueix el pes de l'avió buit");
+        emptyWeight = in.nextInt();
+        if(modelName.length()<=35 && brand.length()<=25 && licenceType.length() <=15 ){
+            m.insertarModels(id,modelName,brand,pax,licenceType,fuelCapacity,maxSpeed,consumPerHour,maxTakeoffWeight,emptyWeight,conn);
+        }else{
+            System.out.println("Les dades son incorrectes ");
+        }
+    }
 }

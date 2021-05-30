@@ -1,8 +1,6 @@
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
+import java.sql.*;
 import java.sql.Connection;
+import java.util.ArrayList;
 
 
 public class ModelsService {
@@ -21,4 +19,31 @@ public class ModelsService {
         return listModel;
     }
 
+    public void insertarModels(int id, String modelName, String brand, short pax, String licenceType, float fuelCapacity, short maxSpeed, int consumPerHour, int maxTakeoffWeight, int emptyWeight, Connection conn) {
+        try {
+
+            String query = "INSERT INTO clients (id,modelName,brand,pax,licenceType,fuelCapacity,maxSpeed,consumPerHour,maxTakeoffWeight,emptyWeight) " +
+                    "VALUES ( ?,?,?,?,?,?,?,?,?,?)";
+
+
+            PreparedStatement stmt = conn.prepareStatement(query);
+
+            stmt.setInt(1, id);
+            stmt.setString(2, modelName);
+            stmt.setString(3, brand);
+            stmt.setShort(4, pax);
+            stmt.setString(5, licenceType);
+            stmt.setFloat(6,fuelCapacity);
+            stmt.setShort(7,maxSpeed);
+            stmt.setInt(8,consumPerHour);
+            stmt.setInt(9,maxTakeoffWeight);
+            stmt.setInt(10,emptyWeight);
+
+            stmt.execute();
+
+        } catch (Exception e) {
+            System.out.println(e);
+
+        }
+    }
 }
