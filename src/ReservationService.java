@@ -1,8 +1,6 @@
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
+import java.sql.*;
 import java.sql.Connection;
+import java.util.ArrayList;
 
 
 public class ReservationService {
@@ -19,5 +17,27 @@ public class ReservationService {
             System.out.println(e);
         }
         return listReservation;
+    }
+    public void insertReservation(int id, int clientId, int planeId, Timestamp startDate, Timestamp endDate,Connection conn) {
+        try {
+
+            String query = "INSERT INTO reservations (id,clientId,planeId,startDate,endDate) " +
+                    "VALUES ( ?,?,?,?,?)" ;
+
+
+            PreparedStatement stmt = conn.prepareStatement(query);
+
+            stmt.setInt(1,id);
+            stmt.setInt(2,clientId);
+            stmt.setInt(3,planeId);
+            stmt.setTimestamp(4,startDate);
+            stmt.setTimestamp(5,endDate);
+
+            stmt.execute();
+
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
     }
 }

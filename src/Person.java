@@ -15,16 +15,16 @@ public class Person {
     }
 }
 
-class Employer extends Person{
+class Employee extends Person{
 
-    public Employer(int id, String dni, String name, String surname1, String surname2) {
+    public Employee(int id, String dni, String name, String surname1, String surname2) {
         super(id, dni, name, surname1, surname2);
 
     }
 
     @Override
     public String toString() {
-        return "Employer{" +
+        return "Employee{" +
                 "id=" + id +
                 ", dni='" + dni + '\'' +
                 ", name='" + name + '\'' +

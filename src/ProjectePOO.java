@@ -41,9 +41,13 @@ public class ProjectePOO {
                     if (opcio2 == 1){
                         g.insertClientsInfo();
                     }else if(opcio2==2){
-                        g.insertPlanesInfo();
+                        g.insertEmployeesInfo();
                     }else if(opcio2==3){
-
+                        g.insertModelsInfo();
+                    }else if(opcio2==4){
+                        g.insertPlanesInfo();
+                    }else if (opcio2==5){
+                        g.insertReservationsInfo();
                     }
                     break;
                 case 3:
