@@ -13,6 +13,11 @@ public class Plane {
         this.mainColor = mainColor;
         this.hoursFlied = hoursFlied;
     }
+    public Plane(int id, String registrationCode, String model) {
+        this.id = id;
+        this.registrationCode = registrationCode;
+        this.model = model;
+    }
     @Override
     public String toString() {
         return "Plane{" +

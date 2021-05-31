@@ -22,6 +22,12 @@ public class Model {
         this.maxTakeoffWeight = maxTakeoffWeight;
         this.emptyWeight = emptyWeight;
     }
+    public Model(int id, String modelName, String brand, short pax) {
+        this.id = id;
+        this.modelName = modelName;
+        this.brand = brand;
+        this.pax = pax;
+    }
     @Override
     public String toString() {
         return "Model{" +

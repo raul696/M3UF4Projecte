@@ -22,4 +22,25 @@ public class PlanesService {
         }
         return listPlane;
     }
+    public void insertPlane(String registrationCode, String model, String mainColor, int hoursFlied, Connection conn) {
+        try {
+
+            String query = "INSERT INTO planes ( registrationCode, model, mainColor, hoursFlied) " +
+                    "VALUES ( ?,?,?,?)" ;
+
+
+            PreparedStatement stmt = conn.prepareStatement(query);
+
+            stmt.setString(1,registrationCode);
+            stmt.setString(2,model);
+            stmt.setString(3,mainColor);
+            stmt.setInt(4,hoursFlied);
+
+            stmt.execute();
+
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }
 }
