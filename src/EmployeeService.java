@@ -38,4 +38,21 @@ public class EmployeeService {
             System.out.println(ex);
         }
     }
+    public void deleteEmpleat(String dni, Connection conn){
+        try {
+
+            String query = "DELETE FROM employees" + " WHERE dni = ?" ;
+
+
+            PreparedStatement stmt = conn.prepareStatement(query);
+
+            stmt.setString(1,dni);
+
+            stmt.execute();
+
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }
 }

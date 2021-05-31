@@ -130,20 +130,32 @@ public class ProjectePOO {
                     }
                     break;
                 case 3:
-                    /*System.out.println();
+                    System.out.println();
                     Interface.menuEsborrar();
                     opcio2 = in.nextInt();
                     if (opcio2 == 1){
-                        g.deleteClient();
+                        String dni;
+                        System.out.println("Introdueix el DNI del client");
+                        dni = in.next();
+                        g.deleteClient(dni);
                     }else if(opcio2==2){
-                        g.insertEmployeesInfo();
+                        String dni;
+                        System.out.println("Introdueix el DNI del empleat");
+                        dni = in.next();
+                        g.deleteEmpleat(dni);
                     }else if(opcio2==3){
-                        g.insertModelsInfo();
+                        String modelName;
+                        System.out.println("Introdueix el nom del model");
+                        modelName = in.next();
+                        g.deleteModel(modelName);
                     }else if(opcio2==4){
-                        g.insertPlanesInfo();
+                        String registrationCode;
+                        System.out.println("Introdueix el codi de l'avió");
+                        registrationCode = in.next();
+                        g.deletePlane(registrationCode);
                     }else if (opcio2==5){
-                        g.insertReservationsInfo();
-                    }*/
+
+                    }
                     break;
                 case 0:
                     Connection.openConnection().close();
