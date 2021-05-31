@@ -34,6 +34,15 @@ public class GestorDades {
         }
         return null;
     }
+    public ArrayList<Employee> getAllEmployees(){
+        try {
+            ArrayList<Employee> listEmployee = e.getAllEmployees(conn);
+            return listEmployee;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return null;
+    }
 
     public ArrayList<Reservation> getAllReservations() {
         try {

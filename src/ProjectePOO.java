@@ -33,6 +33,8 @@ public class ProjectePOO {
                         g.getAllReservations();
                     } else if (opcio2==4){
                         g.getAllClients();
+                    } else if (opcio2==5){
+                        g.getAllEmployees();
                     }
                     break;
                 case 2:

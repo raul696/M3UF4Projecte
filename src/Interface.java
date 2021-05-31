@@ -12,7 +12,8 @@ public class Interface {
                 "2-Obtenir models",
                 "3-Obtenir reserves",
                 "4-Obtenir clients",
-                "5-Tornar al menú"
+                "5-Obtenir empleats",
+                "6-Tornar al menú"
         };
         for (int i = 0; i < menuConsultes.length; i++) {
             System.out.println(menuConsultes[i]);
