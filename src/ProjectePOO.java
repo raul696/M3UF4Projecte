@@ -26,15 +26,25 @@ public class ProjectePOO {
                     Interface.menuConsultes();
                     opcio2= in.nextInt();
                     if(opcio2==1){
-                        g.getAllPlanes();
+                        for (Plane p : g.getAllPlanes()) {
+                            System.out.println(p);
+                        }
                     }else if(opcio2==2){
-                       g.getAllModels();
+                        for (Model m : g.getAllModels()) {
+                            System.out.println(m);
+                        }
                     }else if(opcio2==3){
-                        g.getAllReservations();
+                        for (Reservation r : g.getAllReservations()) {
+                            System.out.println(r);
+                        }
                     } else if (opcio2==4){
-                        g.getAllClients();
+                        for (Client c : g.getAllClients()) {
+                            System.out.println(c);
+                        }
                     } else if (opcio2==5){
-                        g.getAllEmployees();
+                        for (Employee e : g.getAllEmployees()) {
+                            System.out.println(e);
+                        }
                     }
                     break;
                 case 2:

@@ -16,10 +16,6 @@ public class PlanesService {
         } catch (Exception e) {
             System.out.println(e);
         }
-        for (Plane p :listPlane
-             ) {
-            System.out.println(p);
-        }
         return listPlane;
     }
     public void insertPlane(String registrationCode, String model, String mainColor, int hoursFlied, Connection conn) {
