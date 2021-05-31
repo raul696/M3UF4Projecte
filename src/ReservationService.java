@@ -39,4 +39,21 @@ public class ReservationService {
             System.out.println(e);
         }
     }
+    public void deleteReservation(int reservation_id, Connection conn){
+        try {
+
+            String query = "DELETE FROM reservation" + " WHERE reservation_id = ?" ;
+
+
+            PreparedStatement stmt = conn.prepareStatement(query);
+
+            stmt.setInt(1,reservation_id);
+
+            stmt.execute();
+
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }
 }

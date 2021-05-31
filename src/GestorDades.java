@@ -136,5 +136,10 @@ public class GestorDades {
         } else
             System.out.println("Les dades son incorrectes");
     }
+    public void deleteReservation(int reservation_id) throws SQLException{
+        r.deleteReservation(reservation_id,conn);
+
+    }
+
 
 }

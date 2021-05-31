@@ -156,7 +156,10 @@ public class ProjectePOO {
                         registrationCode = in.next();
                         g.deletePlane(registrationCode);
                     }else if (opcio2==5){
-
+                        int reservation_id;
+                        System.out.println("Introdueix l'id de la reserva");
+                        reservation_id = in.nextInt();
+                        g.deleteReservation(reservation_id);
                     }
                     break;
                 case 0:
