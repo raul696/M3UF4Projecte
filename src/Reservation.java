@@ -18,6 +18,12 @@ public class Reservation {
         this.startDate = startDate;
         this.endDate = endDate;
     }
+    public Reservation(int id, int clientId, int planeId, Timestamp startDate) {
+        this.id = id;
+        this.clientId = clientId;
+        this.planeId = planeId;
+        this.startDate = startDate;
+    }
 
     @Override
     public String toString() {

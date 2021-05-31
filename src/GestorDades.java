@@ -8,6 +8,7 @@ public class GestorDades {
     ModelsService m = new ModelsService();
     ReservationService r = new ReservationService();
     ClientsService c = new ClientsService();
+    EmployeeService e = new EmployeeService();
     java.sql.Connection conn;
 
     public void startConnection() throws SQLException {
@@ -59,7 +60,6 @@ public class GestorDades {
     }
 
     public void insertClientsInfo() throws SQLException {
-        ClientsService c = new ClientsService();
         Scanner in = new Scanner(System.in);
         String dni;
         String name;
@@ -77,7 +77,7 @@ public class GestorDades {
         System.out.println("Introdueix la licencia del client");
         licence = in.next();
         boolean correcto = true;
-        if (dni.length() == 9 && name.length() <= 45 && surname1.length() <= 45 && surname2.length() <= 45 && licence.length() <= 4) {
+        if (name.length() <= 45 && surname1.length() <= 45 && surname2.length() <= 45 && licence.length() <= 4) {
             if (Utils.checkDNI(dni)) {
             } else {
                 correcto = false;
@@ -90,15 +90,11 @@ public class GestorDades {
     }
 
     public void insertPlanesInfo() throws SQLException {
-        PlanesService p = new PlanesService();
         Scanner in = new Scanner(System.in);
-        int id;
         String registrationCode;
         String model;
         String mainColor;
         int hoursFlied;
-        System.out.println("Introdueix el ID de l'avió");
-        id = in.nextInt();
         System.out.println("Introdueix el codi de l'avió");
         registrationCode = in.next();
         System.out.println("Introdueix el model de l'avió");
@@ -107,17 +103,15 @@ public class GestorDades {
         mainColor = in.next();
         System.out.println("Introdueix les hores volades de l'avió");
         hoursFlied = in.nextInt();
-        if (id <= 99 && registrationCode.length() <= 10 && model.length() <= 35 && mainColor.length() <= 15) {
-            p.insertPlane(id, registrationCode, model, mainColor, hoursFlied, conn);
+        if (registrationCode.length() <= 10 && model.length() <= 35 && mainColor.length() <= 15) {
+            p.insertPlane( registrationCode, model, mainColor, hoursFlied, conn);
         } else {
             System.out.println("Les dades son incorrectes ");
         }
     }
 
     public void insertModelsInfo() throws SQLException {
-        ModelsService m = new ModelsService();
         Scanner in = new Scanner(System.in);
-        int id;
         String modelName;
         String brand;
         short pax;
@@ -128,8 +122,6 @@ public class GestorDades {
         int maxTakeoffWeight;
         int emptyWeight;
 
-        System.out.println("Introdueix el ID del model");
-        id = in.nextInt();
         System.out.println("Introdueix el nom del model");
         modelName = in.next();
         System.out.println("Introdueix la marca de l'avió");
@@ -149,14 +141,13 @@ public class GestorDades {
         System.out.println("Introdueix el pes de l'avió buit");
         emptyWeight = in.nextInt();
         if (modelName.length() <= 35 && brand.length() <= 25 && licenceType.length() <= 15) {
-            m.insertarModels(id, modelName, brand, pax, licenceType, fuelCapacity, maxSpeed, consumPerHour, maxTakeoffWeight, emptyWeight, conn);
+            m.insertarModels( modelName, brand, pax, licenceType, fuelCapacity, maxSpeed, consumPerHour, maxTakeoffWeight, emptyWeight, conn);
         } else {
             System.out.println("Les dades son incorrectes ");
         }
     }
 
     public void insertEmployeesInfo() throws SQLException {
-        EmployeeService e = new EmployeeService();
         Scanner in = new Scanner(System.in);
         String dni;
         String name;
@@ -171,7 +162,7 @@ public class GestorDades {
         System.out.println("Introdueix el segon cognom del empleat");
         surname2 = in.next();
         boolean correcto = true;
-        if (dni.length() == 9 && name.length() <= 45 && surname1.length() <= 45 && surname2.length() <= 45) {
+        if (name.length() <= 45 && surname1.length() <= 45 && surname2.length() <= 45) {
             if (Utils.checkDNI(dni)) {
             } else {
                 correcto = false;
@@ -184,15 +175,11 @@ public class GestorDades {
     }
 
     public void insertReservationsInfo() throws SQLException {
-        ReservationService r = new ReservationService();
         Scanner in = new Scanner(System.in);
-        int id;
         int clientId;
         int planeId;
         Timestamp startDate;
         Timestamp endDate;
-        System.out.println("Introdueix la ID de la reserva");
-        id = in.nextInt();
         System.out.println("Introdueix la ID del client");
         clientId = in.nextInt();
         System.out.println("Introdueix la ID de l'avió");
@@ -203,8 +190,23 @@ public class GestorDades {
         endDate = Timestamp.valueOf(in.next());
         boolean correcto = true;
         if (correcto) {
-            r.insertReservation(id, clientId, planeId, startDate, endDate, conn);
+            r.insertReservation( clientId, planeId, startDate, endDate, conn);
         } else
             System.out.println("Les dades son incorrectes");
+    }
+    public void deleteClient() throws SQLException{
+        Scanner in = new Scanner(System.in);
+        String dni;
+        System.out.println("Introdueix el DNI del client");
+        dni = in.next();
+        boolean correcto = true;
+        if (Utils.checkDNI(dni)) {
+            } else {
+                correcto = false;
+            }
+            if (correcto) {
+                c.deleteClient(dni, conn);
+            } else
+                System.out.println("Les dades son incorrectes");
     }
 }

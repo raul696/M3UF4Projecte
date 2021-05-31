@@ -53,6 +53,18 @@ public class ProjectePOO {
                 case 3:
                     System.out.println();
                     Interface.menuEsborrar();
+                    opcio2 = in.nextInt();
+                    if (opcio2 == 1){
+                        g.deleteClient();
+                    }else if(opcio2==2){
+                        g.insertEmployeesInfo();
+                    }else if(opcio2==3){
+                        g.insertModelsInfo();
+                    }else if(opcio2==4){
+                        g.insertPlanesInfo();
+                    }else if (opcio2==5){
+                        g.insertReservationsInfo();
+                    }
                     break;
                 case 0:
                     Connection.openConnection().close();

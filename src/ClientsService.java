@@ -42,4 +42,21 @@ public class ClientsService {
             System.out.println(e);
         }
     }
+    public void deleteClient(String dni, Connection conn){
+        try {
+
+            String query = "DELETE FROM clients" + " WHERE dni = ?" ;
+
+
+            PreparedStatement stmt = conn.prepareStatement(query);
+
+            stmt.setString(1,dni);
+
+            stmt.execute();
+
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }
 }

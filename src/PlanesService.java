@@ -22,20 +22,19 @@ public class PlanesService {
         }
         return listPlane;
     }
-    public void insertPlane(Integer id, String registrationCode, String model, String mainColor, int hoursFlied, Connection conn) {
+    public void insertPlane(String registrationCode, String model, String mainColor, int hoursFlied, Connection conn) {
         try {
 
-            String query = "INSERT INTO planes (id, registrationCode, model, mainColor, hoursFlied) " +
-                    "VALUES ( ?,?,?,?,?)" ;
+            String query = "INSERT INTO planes ( registrationCode, model, mainColor, hoursFlied) " +
+                    "VALUES ( ?,?,?,?)" ;
 
 
             PreparedStatement stmt = conn.prepareStatement(query);
 
-            stmt.setInt(1,id);
-            stmt.setString(2,registrationCode);
-            stmt.setString(3,model);
-            stmt.setString(4,mainColor);
-            stmt.setInt(5,hoursFlied);
+            stmt.setString(1,registrationCode);
+            stmt.setString(2,model);
+            stmt.setString(3,mainColor);
+            stmt.setInt(4,hoursFlied);
 
             stmt.execute();
 

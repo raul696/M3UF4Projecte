@@ -13,6 +13,12 @@ public class Person {
         this.surname1 = surname1;
         this.surname2 = surname2;
     }
+    public Person(int id, String dni, String name, String surname1) {
+        this.id = id;
+        this.dni = dni;
+        this.name = name;
+        this.surname1 = surname1;
+    }
 }
 
 class Employee extends Person{
@@ -20,6 +26,9 @@ class Employee extends Person{
     public Employee(int id, String dni, String name, String surname1, String surname2) {
         super(id, dni, name, surname1, surname2);
 
+    }
+    public Employee(int id, String dni, String name, String surname1) {
+        super(id, dni, name, surname1);
     }
 
     @Override
@@ -38,6 +47,10 @@ class Client extends Person{
 
     public Client(int id, String dni, String name, String surname1, String surname2, String licence) {
         super(id, dni, name, surname1, surname2);
+        this.licence = licence;
+    }
+    public Client(int id, String dni, String name, String surname1, String licence) {
+        super(id, dni, name, surname1);
         this.licence = licence;
     }
 
