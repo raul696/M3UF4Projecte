@@ -43,4 +43,21 @@ public class PlanesService {
             System.out.println(e);
         }
     }
+    public void deletePlane(String registrationCode, Connection conn){
+        try {
+
+            String query = "DELETE FROM planes" + " WHERE registration_code = ?" ;
+
+
+            PreparedStatement stmt = conn.prepareStatement(query);
+
+            stmt.setString(1,registrationCode);
+
+            stmt.execute();
+
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }
 }

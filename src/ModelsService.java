@@ -45,4 +45,21 @@ public class ModelsService {
 
         }
     }
+    public void deleteModel(String modelName, Connection conn){
+        try {
+
+            String query = "DELETE FROM models" + " WHERE model_name = ?" ;
+
+
+            PreparedStatement stmt = conn.prepareStatement(query);
+
+            stmt.setString(1,modelName);
+
+            stmt.execute();
+
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }
 }

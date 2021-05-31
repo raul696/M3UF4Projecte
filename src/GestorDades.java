@@ -34,6 +34,15 @@ public class GestorDades {
         }
         return null;
     }
+    public ArrayList<Employee> getAllEmployees(){
+        try {
+            ArrayList<Employee> listEmployee = e.getAllEmployees(conn);
+            return listEmployee;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return null;
+    }
 
     public ArrayList<Reservation> getAllReservations() {
         try {
@@ -102,34 +111,30 @@ public class GestorDades {
     public void insertReservationsInfo(int clientId,int planeId, Timestamp startDate, Timestamp endDate) throws SQLException {
             r.insertReservation( clientId, planeId, startDate, endDate, conn);
     }
-    public void deleteClient() throws SQLException{
-        Scanner in = new Scanner(System.in);
-        String dni;
-        System.out.println("Introdueix el DNI del client");
-        dni = in.next();
-        boolean correcto = true;
+    public void deleteClient(String dni) throws SQLException{
         if (Utils.checkDNI(dni)) {
-            } else {
-                correcto = false;
-            }
-            if (correcto) {
                 c.deleteClient(dni, conn);
             } else
                 System.out.println("Les dades son incorrectes");
     }
-    public void deleteEmpleat() throws SQLException{
-        Scanner in = new Scanner(System.in);
-        String dni;
-        System.out.println("Introdueix el DNI del client");
-        dni = in.next();
+    public void deleteEmpleat(String dni) throws SQLException{
         boolean correcto = true;
-        if (Utils.checkDNI(dni)) {
-        } else {
-            correcto = false;
-        }
-        if (correcto) {
-            c.deleteClient(dni, conn);
+        if (Utils.checkDNI(dni)){
+            e.deleteEmpleat(dni, conn);
         } else
             System.out.println("Les dades son incorrectes");
     }
+    public void deleteModel(String modelName) throws SQLException{
+        if (modelName.length() <= 35){
+            m.deleteModel(modelName, conn);
+        } else
+            System.out.println("Les dades son incorrectes");
+    }
+    public void deletePlane(String registrationCode) throws SQLException{
+        if (registrationCode.length() <= 10){
+            p.deletePlane(registrationCode, conn);
+        } else
+            System.out.println("Les dades son incorrectes");
+    }
+
 }
