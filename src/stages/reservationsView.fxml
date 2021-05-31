@@ -2,9 +2,11 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 
 <AnchorPane prefHeight="701.0" prefWidth="1000.0" translateZ="1.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
     <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#7dc0ff94" height="66.0" layoutX="69.0" layoutY="14.0" stroke="#70a2ff" strokeType="INSIDE" width="826.0" />
         <TableView fx:id="reservesTable" layoutX="81.0" layoutY="335.0" prefHeight="318.0" prefWidth="826.0">
             <columns>
                 <TableColumn fx:id="idReservaCol" prefWidth="93.79998779296875" text="ID Reserva" />
@@ -15,4 +17,19 @@
             </columns>
         </TableView>
       <Button layoutX="81.0" layoutY="285.0" mnemonicParsing="false" onAction="#showAllReservations" text="Mostrar totes les reserves" />
+      <Label layoutX="86.0" layoutY="52.0" text="Client ID" />
+      <TextField fx:id="idClientReservaIns" layoutX="140.0" layoutY="48.0" prefHeight="26.0" prefWidth="34.0" />
+      <Label layoutX="189.0" layoutY="52.0" text="Avió ID" />
+      <TextField fx:id="idAvioReservaIns" layoutX="237.0" layoutY="48.0" prefHeight="26.0" prefWidth="34.0" />
+      <Label layoutX="283.0" layoutY="52.0" text="Data Inici" />
+      <TextField fx:id="dataIniciReservaIns" layoutX="340.0" layoutY="49.0" prefHeight="26.0" prefWidth="78.0" promptText="2020-04-17" />
+      <Label layoutX="435.0" layoutY="52.0" text="Hora Inici" />
+      <TextField fx:id="horaIniciReservaIns" layoutX="499.0" layoutY="48.0" prefHeight="26.0" prefWidth="46.0" promptText="17:00" />
+      <Label layoutX="569.0" layoutY="52.0" text="Data Fi" />
+      <TextField fx:id="dataFiReservaIns" layoutX="613.0" layoutY="47.0" prefHeight="26.0" prefWidth="78.0" promptText="2020-04-20" />
+      <Label layoutX="707.0" layoutY="52.0" text="Hora Fi" />
+      <TextField fx:id="horaFiReservaIns" layoutX="752.0" layoutY="48.0" prefHeight="26.0" prefWidth="46.0" promptText="17:00" />
+      <Button layoutX="833.0" layoutY="27.0" mnemonicParsing="false" onAction="#insertReservation" text="Crear" />
+      <Label layoutX="86.0" layoutY="22.0" text="Crear Reserves:" />
+      <Label fx:id="reservesErrorBox" layoutX="254.0" layoutY="284.0" prefHeight="26.0" prefWidth="427.0" style="-fx-background-color: #ff9696;" visible="false" />
     </children></AnchorPane>

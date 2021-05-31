@@ -21,9 +21,8 @@ public class ReservationService {
     public void insertReservation( int clientId, int planeId, Timestamp startDate, Timestamp endDate,Connection conn) {
         try {
 
-            String query = "INSERT INTO reservations (clientId,planeId,startDate,endDate) " +
+            String query = "INSERT INTO reservations (client_id,plane_id,start_date,end_date) " +
                     "VALUES (?,?,?,?)" ;
-
 
             PreparedStatement stmt = conn.prepareStatement(query);
 

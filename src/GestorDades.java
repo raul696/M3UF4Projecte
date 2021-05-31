@@ -1,6 +1,5 @@
 import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.util.Scanner;
 import java.util.ArrayList;
 
 public class GestorDades {
@@ -9,7 +8,7 @@ public class GestorDades {
     ReservationService r = new ReservationService();
     ClientsService c = new ClientsService();
     EmployeeService e = new EmployeeService();
-    java.sql.Connection conn;
+    static java.sql.Connection conn;
 
     public void startConnection() throws SQLException {
         conn = Connection.openConnection();
@@ -27,17 +26,20 @@ public class GestorDades {
 
     public ArrayList<Plane> getAllPlanes() {
         try {
-            ArrayList<Plane> listPlane = p.getAllPlanes(conn);
-            return listPlane;
+            return p.getAllPlanes(conn);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
         return null;
     }
+
+    public Employee getEmployeeByDni(String dniIn) throws SQLException {
+        return e.getEmployeeByDni(conn, dniIn);
+    }
+
     public ArrayList<Employee> getAllEmployees(){
         try {
-            ArrayList<Employee> listEmployee = e.getAllEmployees(conn);
-            return listEmployee;
+            return e.getAllEmployees(conn);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -46,18 +48,20 @@ public class GestorDades {
 
     public ArrayList<Reservation> getAllReservations() {
         try {
-            ArrayList<Reservation> listReservation = r.getAllReservations(conn);
-            return listReservation;
+            return r.getAllReservations(conn);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
         return null;
     }
 
+    public Client getClientByDni(String dniIn) throws SQLException {
+        return c.getClientByDni(conn, dniIn);
+    }
+
     public ArrayList<Client> getAllClients() {
         try {
-            ArrayList<Client> listClient = c.getAllClients(conn);
-            return listClient;
+            return c.getAllClients(conn);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -108,7 +112,7 @@ public class GestorDades {
         }
     }
 
-    public void insertReservationsInfo(int clientId,int planeId, Timestamp startDate, Timestamp endDate) throws SQLException {
+    public void insertReservationsInfo(int clientId, int planeId, Timestamp startDate, Timestamp endDate) throws SQLException {
             r.insertReservation( clientId, planeId, startDate, endDate, conn);
     }
     public void deleteClient(String dni) throws SQLException{

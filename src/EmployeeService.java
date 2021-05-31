@@ -18,6 +18,22 @@ public class EmployeeService {
         return listEmployees;
     }
 
+    public Employee getEmployeeByDni(Connection conn, String dni) throws SQLException {
+        Employee employee = null;
+        try {
+            Statement stmt= conn.createStatement();
+            ResultSet rs=stmt.executeQuery("SELECT * FROM employees WHERE dni=\"" + dni + '"');
+
+            if (rs.next()){
+                employee = new Employee(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5));
+            }
+
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return employee;
+    }
+
     public void insertEmployees(String dni, String name, String surname1, String surname2, Connection conn) {
         try {
 

@@ -16,9 +16,17 @@ public class LoginController {
         String dniIn = dniTextInput.getText();
         if (Utils.checkDNI(dniIn)){
             if (e.getSource() == accessClientButton){
-                Client c = g.getClientByDni(dniIn);
-                if (c == null){
-                    messageBox.setText("DNI de Person.Client invalid");
+                Client client = g.getClientByDni(dniIn);
+                if (client == null){
+                    messageBox.setText("DNI de Client invalid");
+                    messageBox.setVisible(true);
+                }else {
+                    sl.mainStage(e,"/stages/principal.fxml","Aeroreserves");
+                }
+            }else {
+                Employee employee = g.getEmployeeByDni(dniIn);
+                if (employee == null){
+                    messageBox.setText("DNI d'Empleat invalid");
                     messageBox.setVisible(true);
                 }else {
                     sl.mainStage(e,"/stages/principal.fxml","Aeroreserves");

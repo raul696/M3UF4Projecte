@@ -6,7 +6,7 @@ import java.util.Properties;
 
 public class Connection {
     public static java.sql.Connection openConnection() throws SQLException {
-        Properties prop =new Properties();
+        Properties prop = new Properties();
         try {
             FileInputStream ip= new FileInputStream("config.properties");
             prop.load(ip);

@@ -7,6 +7,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -44,6 +45,14 @@ public class Controller implements Initializable {
     public TableColumn<Reservation, Integer> idAvioReservaCol;
     public TableColumn<Reservation, Timestamp> dataIniciReservaCol;
     public TableColumn<Reservation, Timestamp> dataFiReservaCol;
+    // Reserves insert
+    public TextField idClientReservaIns;
+    public TextField idAvioReservaIns;
+    public TextField dataIniciReservaIns;
+    public TextField horaIniciReservaIns;
+    public TextField dataFiReservaIns;
+    public TextField horaFiReservaIns;
+    public Label reservesErrorBox;
     // View Avions
     public Button showAllPlanes;
     public TableView<Plane> avionsTable;
@@ -81,7 +90,7 @@ public class Controller implements Initializable {
     public void showAllEmployee(){
         initializeEmpleatsTable();
         ObservableList<Employee> employeeData = FXCollections.observableArrayList();
-        ArrayList<Employee> employeeList = g.getAllEmployee();
+        ArrayList<Employee> employeeList = g.getAllEmployees();
         employeeData.addAll(employeeList);
         empleatsTable.setItems(employeeData);
     }
@@ -92,6 +101,30 @@ public class Controller implements Initializable {
         ArrayList<Reservation> reservationsList = g.getAllReservations();
         reservationsData.addAll(reservationsList);
         reservesTable.setItems(reservationsData);
+    }
+
+    public void insertReservation(){
+        try{
+            int clientId = Integer.parseInt(idClientReservaIns.getText());
+            int planeId = Integer.parseInt(idAvioReservaIns.getText());
+            Timestamp dataInici = Timestamp.valueOf(dataIniciReservaIns.getText() + " " + horaIniciReservaIns.getText()+":00.0");
+            Timestamp dataFi = Timestamp.valueOf(dataFiReservaIns.getText() + " " + horaFiReservaIns.getText()+":00.0");
+            try {
+                g.insertReservationsInfo(clientId, planeId, dataInici, dataFi);
+                reservesErrorBox.setText("Reserva afegida correctament");
+                reservesErrorBox.setStyle("-fx-background-color: #81F79F;");
+                reservesErrorBox.setVisible(true);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+                reservesErrorBox.setText("El insert ha fallat, comprova que les dades son correctes");
+                reservesErrorBox.setStyle("-fx-background-color: #ff9696;");
+                reservesErrorBox.setVisible(true);
+            }
+        }catch (Exception e){
+            reservesErrorBox.setText("El format de dades no es correcte");
+            reservesErrorBox.setStyle("-fx-background-color: #ff9696;");
+            reservesErrorBox.setVisible(true);
+        }
     }
 
     public void changeView(ActionEvent e) throws Exception {
