@@ -25,7 +25,7 @@ public class PlanesService {
     public void insertPlane(String registrationCode, String model, String mainColor, int hoursFlied, Connection conn) {
         try {
 
-            String query = "INSERT INTO planes ( registrationCode, model, mainColor, hoursFlied) " +
+            String query = "INSERT INTO planes ( registration_code, model, main_color, hours_flied) " +
                     "VALUES ( ?,?,?,?)" ;
 
 
