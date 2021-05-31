@@ -1,5 +1,6 @@
 
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.Scanner;
 
 public class ProjectePOO {
@@ -16,6 +17,15 @@ public class ProjectePOO {
         int opcio = 0;
         int opcio2=0;
         g.startConnection();
+        String dni;
+        String name;
+        String surname1;
+        String surname2;
+        String licence;
+        int clientId;
+        int planeId;
+        Timestamp startDate;
+        Timestamp endDate;
         do {
             Interface.mostrarMenu(menu);
             opcio = in.nextInt();
@@ -39,7 +49,17 @@ public class ProjectePOO {
                     Interface.menuAfegir();
                     opcio2 = in.nextInt();
                     if (opcio2 == 1){
-                        g.insertClientsInfo();
+                        System.out.println("Introdueix el DNI del client");
+                        dni = in.next();
+                        System.out.println("Introdueix el nom del client");
+                        name = in.next();
+                        System.out.println("Introdueix el primer cognom del client");
+                        surname1 = in.next();
+                        System.out.println("Introdueix el segon cognom del client");
+                        surname2 = in.next();
+                        System.out.println("Introdueix la licencia del client");
+                        licence = in.next();
+                        g.insertClientsInfo(dni,name,surname1,surname2,licence);
                     }else if(opcio2==2){
                         g.insertEmployeesInfo();
                     }else if(opcio2==3){
@@ -47,11 +67,19 @@ public class ProjectePOO {
                     }else if(opcio2==4){
                         g.insertPlanesInfo();
                     }else if (opcio2==5){
-                        g.insertReservationsInfo();
+                        System.out.println("Introdueix la ID del client");
+                        clientId = in.nextInt();
+                        System.out.println("Introdueix la ID de l'avió");
+                        planeId = in.nextInt();
+                        System.out.println("Introdueix la data de recollida (YYYY-MM-DD 00:00)");
+                        startDate = Timestamp.valueOf(in.next());
+                        System.out.println("Introdueix la data de entrega (YYYY-MM-DD 00:00)");
+                        endDate = Timestamp.valueOf(in.next());
+                        g.insertReservationsInfo(clientId,planeId,startDate,endDate);
                     }
                     break;
                 case 3:
-                    System.out.println();
+                    /*System.out.println();
                     Interface.menuEsborrar();
                     opcio2 = in.nextInt();
                     if (opcio2 == 1){
@@ -64,7 +92,7 @@ public class ProjectePOO {
                         g.insertPlanesInfo();
                     }else if (opcio2==5){
                         g.insertReservationsInfo();
-                    }
+                    }*/
                     break;
                 case 0:
                     Connection.openConnection().close();

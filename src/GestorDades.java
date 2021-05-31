@@ -15,67 +15,47 @@ public class GestorDades {
         conn = Connection.openConnection();
     }
 
-    public void getAllModels() {
+    public ArrayList<Model> getAllModels() {
         try {
             ArrayList<Model> listModel = m.getAllModels(conn);
-            for (Model m : listModel) {
-                System.out.println(m);
-            }
+            return listModel;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+        return null;
     }
 
-    public void getAllPlanes() {
+    public ArrayList<Plane> getAllPlanes() {
         try {
             ArrayList<Plane> listPlane = p.getAllPlanes(conn);
-            for (Plane p : listPlane) {
-                System.out.println(p);
-            }
+            return listPlane;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+        return null;
     }
 
-    public void getAllReservations() {
+    public ArrayList<Reservation> getAllReservations() {
         try {
             ArrayList<Reservation> listReservation = r.getAllReservations(conn);
-            for (Reservation r : listReservation) {
-                System.out.println(r);
-            }
+            return listReservation;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+        return null;
     }
 
-    public void getAllClients() {
+    public ArrayList<Client> getAllClients() {
         try {
             ArrayList<Client> listClient = c.getAllClients(conn);
-            for (Client c : listClient) {
-                System.out.println(c);
-            }
+            return listClient;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+        return null;
     }
 
-    public void insertClientsInfo() throws SQLException {
-        Scanner in = new Scanner(System.in);
-        String dni;
-        String name;
-        String surname1;
-        String surname2;
-        String licence;
-        System.out.println("Introdueix el DNI del client");
-        dni = in.next();
-        System.out.println("Introdueix el nom del client");
-        name = in.next();
-        System.out.println("Introdueix el primer cognom del client");
-        surname1 = in.next();
-        System.out.println("Introdueix el segon cognom del client");
-        surname2 = in.next();
-        System.out.println("Introdueix la licencia del client");
-        licence = in.next();
+    public void insertClientsInfo(String dni, String name, String surname1, String surname2, String licence) throws SQLException {
         boolean correcto = true;
         if (name.length() <= 45 && surname1.length() <= 45 && surname2.length() <= 45 && licence.length() <= 4) {
             if (Utils.checkDNI(dni)) {
@@ -174,25 +154,8 @@ public class GestorDades {
         }
     }
 
-    public void insertReservationsInfo() throws SQLException {
-        Scanner in = new Scanner(System.in);
-        int clientId;
-        int planeId;
-        Timestamp startDate;
-        Timestamp endDate;
-        System.out.println("Introdueix la ID del client");
-        clientId = in.nextInt();
-        System.out.println("Introdueix la ID de l'avió");
-        planeId = in.nextInt();
-        System.out.println("Introdueix la data de recollida (YYYY-MM-DD 00:00)");
-        startDate = Timestamp.valueOf(in.next());
-        System.out.println("Introdueix la data de entrega (YYYY-MM-DD 00:00)");
-        endDate = Timestamp.valueOf(in.next());
-        boolean correcto = true;
-        if (correcto) {
+    public void insertReservationsInfo(int clientId,int planeId, Timestamp startDate, Timestamp endDate) throws SQLException {
             r.insertReservation( clientId, planeId, startDate, endDate, conn);
-        } else
-            System.out.println("Les dades son incorrectes");
     }
     public void deleteClient() throws SQLException{
         Scanner in = new Scanner(System.in);
@@ -208,5 +171,20 @@ public class GestorDades {
                 c.deleteClient(dni, conn);
             } else
                 System.out.println("Les dades son incorrectes");
+    }
+    public void deleteEmpleat() throws SQLException{
+        Scanner in = new Scanner(System.in);
+        String dni;
+        System.out.println("Introdueix el DNI del client");
+        dni = in.next();
+        boolean correcto = true;
+        if (Utils.checkDNI(dni)) {
+        } else {
+            correcto = false;
+        }
+        if (correcto) {
+            c.deleteClient(dni, conn);
+        } else
+            System.out.println("Les dades son incorrectes");
     }
 }
