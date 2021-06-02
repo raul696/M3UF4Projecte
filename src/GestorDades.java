@@ -1,6 +1,5 @@
 import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.util.Scanner;
 import java.util.ArrayList;
 
 public class GestorDades {
@@ -11,11 +10,18 @@ public class GestorDades {
     EmployeeService e = new EmployeeService();
     java.sql.Connection conn;
 
+    /**
+     * Començem la connexió
+     * @throws SQLException
+     */
     public void startConnection() throws SQLException {
         conn = Connection.openConnection();
     }
 
     public ArrayList<Model> getAllModels() {
+        /**
+         * Funció per conseguir tots els models de avió
+         */
         try {
             ArrayList<Model> listModel = m.getAllModels(conn);
             return listModel;
@@ -26,6 +32,9 @@ public class GestorDades {
     }
 
     public ArrayList<Plane> getAllPlanes() {
+        /**
+         * Funció per conseguir tots els avións
+         */
         try {
             ArrayList<Plane> listPlane = p.getAllPlanes(conn);
             return listPlane;
@@ -35,6 +44,9 @@ public class GestorDades {
         return null;
     }
     public ArrayList<Employee> getAllEmployees(){
+        /**
+         * Funció per conseguir tots els empleats
+         */
         try {
             ArrayList<Employee> listEmployee = e.getAllEmployees(conn);
             return listEmployee;
@@ -45,6 +57,9 @@ public class GestorDades {
     }
 
     public ArrayList<Reservation> getAllReservations() {
+        /**
+         * Funció per conseguir totes les reserves
+         */
         try {
             ArrayList<Reservation> listReservation = r.getAllReservations(conn);
             return listReservation;
@@ -55,6 +70,9 @@ public class GestorDades {
     }
 
     public ArrayList<Client> getAllClients() {
+        /**
+         * Funció per conseguir tots els clients
+         */
         try {
             ArrayList<Client> listClient = c.getAllClients(conn);
             return listClient;
@@ -65,6 +83,9 @@ public class GestorDades {
     }
 
     public void insertClientsInfo(String dni, String name, String surname1, String surname2, String licence) throws SQLException {
+        /**
+         * Funció per introduir un client, també comprova si encaixa les llargades de les dades amb la de la base de dades
+         */
         boolean correcto = true;
         if (name.length() <= 45 && surname1.length() <= 45 && surname2.length() <= 45 && licence.length() <= 4) {
             if (Utils.checkDNI(dni)) {
@@ -79,6 +100,9 @@ public class GestorDades {
     }
 
     public void insertPlanesInfo(String registrationCode, String model, String mainColor, int hoursFlied) throws SQLException {
+        /**
+         * Funció per introduir un avió, també comprova si encaixa les llargades de les dades amb la de la base de dades
+         */
         if (registrationCode.length() <= 10 && model.length() <= 35 && mainColor.length() <= 15) {
             p.insertPlane( registrationCode, model, mainColor, hoursFlied, conn);
         } else {
@@ -87,6 +111,9 @@ public class GestorDades {
     }
 
     public void insertModelsInfo(String modelName,String brand,short pax, String licenceType,float fuelCapacity,short maxSpeed,int consumPerHour,int maxTakeoffWeight,int emptyWeight) throws SQLException {
+        /**
+         * Funció per introduir un model de avió, també comprova si encaixa les llargades de les dades amb la de la base de dades
+         */
         if (modelName.length() <= 35 && brand.length() <= 25 && licenceType.length() <= 15) {
             m.insertarModels( modelName, brand, pax, licenceType, fuelCapacity, maxSpeed, consumPerHour, maxTakeoffWeight, emptyWeight, conn);
         } else {
@@ -95,6 +122,9 @@ public class GestorDades {
     }
 
     public void insertEmployeesInfo(String dni, String name, String surname1, String surname2) throws SQLException {
+        /**
+         * Funció per introduir un empleat, també comprova si encaixa les llargades de les dades amb la de la base de dades
+         */
         boolean correcto = true;
         if (name.length() <= 45 && surname1.length() <= 45 && surname2.length() <= 45) {
             if (Utils.checkDNI(dni)) {
@@ -109,15 +139,24 @@ public class GestorDades {
     }
 
     public void insertReservationsInfo(int clientId,int planeId, Timestamp startDate, Timestamp endDate) throws SQLException {
+        /**
+         * Funció per introduir una reserva, també comprova si encaixa les llargades de les dades amb la de la base de dades
+         */
             r.insertReservation( clientId, planeId, startDate, endDate, conn);
     }
     public void deleteClient(String dni) throws SQLException{
+        /**
+         * Funció per borrar un client, també comprova si encaixa les llargades de les dades amb la de la base de dades
+         */
         if (Utils.checkDNI(dni)) {
                 c.deleteClient(dni, conn);
             } else
                 System.out.println("Les dades son incorrectes");
     }
     public void deleteEmpleat(String dni) throws SQLException{
+        /**
+         * Funció per borrar un empleat, també comprova si encaixa les llargades de les dades amb la de la base de dades
+         */
         boolean correcto = true;
         if (Utils.checkDNI(dni)){
             e.deleteEmpleat(dni, conn);
@@ -125,18 +164,27 @@ public class GestorDades {
             System.out.println("Les dades son incorrectes");
     }
     public void deleteModel(String modelName) throws SQLException{
+        /**
+         * Funció per borrar un model d'avió, també comprova si encaixa les llargades de les dades amb la de la base de dades
+         */
         if (modelName.length() <= 35){
             m.deleteModel(modelName, conn);
         } else
             System.out.println("Les dades son incorrectes");
     }
     public void deletePlane(String registrationCode) throws SQLException{
+        /**
+         * Funció per borrar un avió, també comprova si encaixa les llargades de les dades amb la de la base de dades
+         */
         if (registrationCode.length() <= 10){
             p.deletePlane(registrationCode, conn);
         } else
             System.out.println("Les dades son incorrectes");
     }
     public void deleteReservation(int reservation_id) throws SQLException{
+        /**
+         * Funció per borrar una reserva
+         */
         r.deleteReservation(reservation_id,conn);
 
     }

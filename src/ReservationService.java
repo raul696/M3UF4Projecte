@@ -4,6 +4,13 @@ import java.util.ArrayList;
 
 
 public class ReservationService {
+    /**
+     * Iniciem una connexió a la base de dades i seleccionem totes les dades de la taula reservations i les
+     * afegim a una ArrayList anomenada listReservation
+     * @param conn
+     * @return
+     * @throws SQLException
+     */
     public ArrayList<Reservation> getAllReservations(Connection conn) throws SQLException {
         ArrayList<Reservation> listReservation = new ArrayList<>();
         try {
@@ -18,6 +25,16 @@ public class ReservationService {
         }
         return listReservation;
     }
+
+    /**
+     * Iniciem una connexió a la base de dades per afegir a la taula reservations les dades que ens introdueixen al
+     * main
+     * @param clientId
+     * @param planeId
+     * @param startDate
+     * @param endDate
+     * @param conn
+     */
     public void insertReservation( int clientId, int planeId, Timestamp startDate, Timestamp endDate,Connection conn) {
         try {
 
@@ -39,6 +56,12 @@ public class ReservationService {
             System.out.println(e);
         }
     }
+
+    /**
+     * Iniciem una connexió i segons la reservation_id que ens han introduit borrem la reserva de la taula reservas
+     * @param reservation_id
+     * @param conn
+     */
     public void deleteReservation(int reservation_id, Connection conn){
         try {
 
