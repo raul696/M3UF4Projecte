@@ -3,7 +3,18 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.Scanner;
 
+        /**
+        * Aquí es mostra tot el cos del programa i es criden les diferents funcions segons el que seleccionem
+        * @author Raúl Allen, Daniel Pesaferrer i Albert Buch
+        * @version 02/06/2021
+        *
+        */
 public class ProjectePOO {
+
+            /**
+             * Mostra el menú per pantalla i segons la opció triada s'executa una o altre instrucció fins que sortim del programa amb el 3
+             */
+
     public static void main(String[] args) throws SQLException {
         Scanner in = new Scanner(System.in);
         String[] menu = {

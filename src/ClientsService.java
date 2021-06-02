@@ -5,6 +5,14 @@ import java.util.ArrayList;
 
 public class ClientsService {
 
+
+    /**
+     * Iniciem una connexió a la base de dades i selecionem totes les dades de la taula clients i les afegim
+     * a un Arraylist anomenada Client
+     * @param conn
+     * @return listClient
+     * @throws SQLException
+     */
     public ArrayList<Client> getAllClients(Connection conn) throws SQLException {
         ArrayList<Client> listClient = new ArrayList<>();
         try {
@@ -20,6 +28,15 @@ public class ClientsService {
         return listClient;
     }
 
+    /**
+     * Iniciem una connexió per afegir clients a la taula clients amb les dades demanades al main
+     * @param dni
+     * @param name
+     * @param surname1
+     * @param surname2
+     * @param licence
+     * @param conn
+     */
     public void insertClients(String dni, String name, String surname1, String surname2, String licence, Connection conn) {
         try {
 
@@ -42,6 +59,13 @@ public class ClientsService {
             System.out.println(e);
         }
     }
+
+    /**
+     * Iniciem una connexió on rebem un string de DNI i fem una consulta SQL, que segons el DNI que estiguem rebent borra una línea
+     * de la taula cleints.
+     * @param dni
+     * @param conn
+     */
     public void deleteClient(String dni, Connection conn){
         try {
 

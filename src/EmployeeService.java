@@ -3,6 +3,13 @@ import java.sql.Connection;
 import java.util.ArrayList;
 
 public class EmployeeService {
+    /**
+     * Iniciem una connexió a la base de dades i afegim totes les dades de la taula employees a un ArrayList que hem
+     * creat anomenada Employee
+     * @param conn
+     * @return la Array creada de empleats
+     * @throws SQLException
+     */
     public ArrayList<Employee> getAllEmployees(Connection conn) throws SQLException {
         ArrayList<Employee> listEmployees = new ArrayList<>();
         try {
@@ -18,6 +25,14 @@ public class EmployeeService {
         return listEmployees;
     }
 
+    /**
+     * Iniciem una connexió per afegir clients a la taula employees amb les dades demanades al main
+     * @param dni
+     * @param name
+     * @param surname1
+     * @param surname2
+     * @param conn
+     */
     public void insertEmployees(String dni, String name, String surname1, String surname2, Connection conn) {
         try {
 
@@ -38,6 +53,13 @@ public class EmployeeService {
             System.out.println(ex);
         }
     }
+
+    /**
+     * Iniciem una connexió on rebem un String de DNI i fem una consulta SQL que borrem tots els empleats on el
+     * DNI sigui igual al introduit per l'usuari
+     * @param dni
+     * @param conn
+     */
     public void deleteEmpleat(String dni, Connection conn){
         try {
 

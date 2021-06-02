@@ -5,6 +5,10 @@ public class Interface {
             System.out.println(menu[i]);
         }
     }
+
+    /**
+     * Creem el menú per l'apartat de consultes
+     */
     public static void menuConsultes() {
         String[] menuConsultes = {
                 "CONSULTES",
@@ -20,6 +24,9 @@ public class Interface {
         }
     }
 
+    /**
+     * Creem el menú per l'apartat de AfegirDades
+     */
     public static void menuAfegir() {
         String[] menuAfegir = {
                 "¿Que vols afegir?",
@@ -34,6 +41,10 @@ public class Interface {
             System.out.println(menuAfegir[i]);
         }
     }
+
+    /**
+     * Creem el menú per l'apartat de EsborrarDades
+     */
     public static void menuEsborrar(){
         String[] menuEsborrar = {
                 "¿Que vols esborrar?",

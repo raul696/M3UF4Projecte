@@ -4,6 +4,14 @@ import java.sql.Connection;
 
 public class PlanesService {
 
+
+    /**
+     * Iniciem una connexió per afegir totes les dades de la taula planes a un ArrayList que creem anomenada
+     * listPlane
+     * @param conn
+     * @return
+     * @throws SQLException
+     */
     public ArrayList<Plane> getAllPlanes(Connection conn) throws SQLException{
         ArrayList<Plane> listPlane = new ArrayList<>();
         try {
@@ -18,6 +26,16 @@ public class PlanesService {
         }
         return listPlane;
     }
+
+    /**
+     * Iniciem una connexió a la base de dades per inserir a la taula planes les dades que ens introdueixen desde el
+     * main
+     * @param registrationCode
+     * @param model
+     * @param mainColor
+     * @param hoursFlied
+     * @param conn
+     */
     public void insertPlane(String registrationCode, String model, String mainColor, int hoursFlied, Connection conn) {
         try {
 
@@ -39,6 +57,13 @@ public class PlanesService {
             System.out.println(e);
         }
     }
+
+    /**
+     * Iniciem una connexió a la base de dades i segons el "registration_code" que ens introdueixen podem eliminar
+     * les dades que pertanyen a aquell codi de la taula planes
+     * @param registrationCode
+     * @param conn
+     */
     public void deletePlane(String registrationCode, Connection conn){
         try {
 

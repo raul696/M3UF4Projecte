@@ -4,6 +4,13 @@ import java.util.ArrayList;
 
 
 public class ModelsService {
+    /**
+     * Iniciem una connexió a la base de dades i seleccionem totes les dades de la taula models i les introduim a
+     * un ArrayList que creem anomenat listModel
+     * @param conn
+     * @return l'ArrayList anomenat listModel
+     * @throws SQLException
+     */
     public ArrayList<Model> getAllModels(Connection conn) throws SQLException {
         ArrayList<Model> listModel = new ArrayList<>();
         try {
@@ -19,6 +26,20 @@ public class ModelsService {
         return listModel;
     }
 
+    /**
+     * Iniciem una connexió a la base de dades per poder inserir les dades de un model d'avió amb els parametres que
+     * rebem del main
+     * @param modelName
+     * @param brand
+     * @param pax
+     * @param licenceType
+     * @param fuelCapacity
+     * @param maxSpeed
+     * @param consumPerHour
+     * @param maxTakeoffWeight
+     * @param emptyWeight
+     * @param conn
+     */
     public void insertarModels(String modelName, String brand, short pax, String licenceType, float fuelCapacity, short maxSpeed, int consumPerHour, int maxTakeoffWeight, int emptyWeight, Connection conn) {
         try {
 
@@ -45,6 +66,13 @@ public class ModelsService {
 
         }
     }
+
+    /**
+     * Iniciem una connexió per segons el nom de model que ens han introduit poder borrarlo de la taula models totes
+     * les seves dades
+     * @param modelName
+     * @param conn
+     */
     public void deleteModel(String modelName, Connection conn){
         try {
 
