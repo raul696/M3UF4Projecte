@@ -24,12 +24,16 @@ Obtenir empleats consulta, ens retorna totes les dades que tenim a la taula empl
 
 ![Obtenir Empleats](https://github.com/DanielDPM/M3UF4Projecte/blob/main/images/ObtenirEmpleats.png)
 
+### 2-Afegir Dades
+
 
 ## 2-Vídeo
 
 ## 3-POO
 
+Hem decidit crear una part del menú que sigui consultes per poder consultar totes les dades que tenim de la base de dades separat per taules, hem creat també un altre part que sigui tant per afegir com per esborrar dades de la base i depenent de la taula que volguem esborrar la seleccionem i ens demana diferents coses 
 
+![POO.png](https://github.com/DanielDPM/M3UF4Projecte/blob/main/images/POO.png)
 
 
 ## 4-VCS
