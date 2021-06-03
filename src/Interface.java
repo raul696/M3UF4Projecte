@@ -34,7 +34,8 @@ public class Interface {
                 "2-Empleats",
                 "3-Models",
                 "4-Avions",
-                "5-Reserves"
+                "5-Reserves",
+                "6-Tornar al menú"
 
         };
         for (int i = 0; i < menuAfegir.length; i++) {
@@ -52,7 +53,8 @@ public class Interface {
                 "2-Empleats",
                 "3-Models",
                 "4-Avions",
-                "5-Reserves"
+                "5-Reserves",
+                "6-Tornar al menú"
 
         };
         for (int i = 0; i < menuEsborrar.length; i++) {

@@ -65,7 +65,7 @@ public class ReservationService {
     public void deleteReservation(int reservation_id, Connection conn){
         try {
 
-            String query = "DELETE FROM reservation" + " WHERE reservation_id = ?" ;
+            String query = "DELETE FROM reservations" + " WHERE reservation_id = ?" ;
 
 
             PreparedStatement stmt = conn.prepareStatement(query);
