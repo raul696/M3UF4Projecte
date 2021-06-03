@@ -36,7 +36,7 @@ public class FunctionTEST {
                         g.getAllEmployees();
                     } else if (opcio2==6){
                         String model = in.next();
-                        g.getPlaneByModel(model);
+                        g.getPlanesByModel(model);
                     }
                     break;
                 case 2:

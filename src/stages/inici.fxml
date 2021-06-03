@@ -9,7 +9,7 @@
       <font>
          <Font name="Consolas" size="16.0" />
       </font></Label>
-   <TextField fx:id="dniTextInput" alignment="CENTER" layoutX="56.0" layoutY="125.0" prefHeight="26.0" prefWidth="157.0" promptText="DNI" />
+   <TextField fx:id="dniTextInput" alignment="CENTER" layoutX="56.0" layoutY="125.0" prefHeight="26.0" prefWidth="157.0" promptText="12345678P" />
    <Button fx:id="accessClientButton" layoutX="26.0" layoutY="188.0" onAction="#login" text="Accés de client" />
    <Label fx:id="messageBox" alignment="CENTER" layoutX="14.0" layoutY="24.0" prefHeight="26.0" prefWidth="241.0" style="-fx-background-color: #ff9696;" textAlignment="JUSTIFY" visible="false" />
    <Button fx:id="accessEmpleatButton" layoutX="141.0" layoutY="188.0" onAction="#login" text="Accés d'empleat" />

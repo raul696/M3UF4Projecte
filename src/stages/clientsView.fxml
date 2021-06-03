@@ -17,11 +17,24 @@
             </columns>
         </TableView>
       <Button fx:id="showAllClients" layoutX="70.0" layoutY="287.0" mnemonicParsing="false" onAction="#showAllClients" text="Mostra tots els clients" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#7dc0ff94" height="66.0" layoutX="69.0" layoutY="14.0" stroke="#70a2ff" strokeType="INSIDE" width="862.0" />
         <Label fx:id="clientsErrorBox" layoutX="254.0" layoutY="284.0" prefHeight="26.0" prefWidth="427.0" style="-fx-background-color: #ff9696;" visible="false" />
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#7dc0ff94" height="66.0" layoutX="69.0" layoutY="98.0" stroke="#70a2ff" strokeType="INSIDE" width="326.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#7dc0ff94" height="66.0" layoutX="69.0" layoutY="98.0" stroke="#70a2ff" strokeType="INSIDE" width="305.0" />
         <Label layoutX="86.0" layoutY="105.0" text="Mostrar informació d'un client:" />
         <Label layoutX="86.0" layoutY="136.0" text="DNI Client:" />
-        <TextField fx:id="dniTextInput" alignment="CENTER" layoutX="148.0" layoutY="131.0" prefHeight="26.0" prefWidth="157.0" promptText="DNI" />
-        <Button fx:id="getClientInfo" layoutX="320.0" layoutY="110.0" mnemonicParsing="false" onAction="#getClientInfo" text="Consultar" />
+        <TextField fx:id="dniTextInput" alignment="CENTER" layoutX="148.0" layoutY="131.0" prefHeight="26.0" prefWidth="132.0" promptText="12345678P" />
+        <Button fx:id="getClientInfo" layoutX="299.0" layoutY="110.0" mnemonicParsing="false" onAction="#getClientInfo" text="Consultar" />
+      <Label layoutX="86.0" layoutY="22.0" text="Crear client:" />
+      <Label layoutX="85.0" layoutY="51.0" text="DNI Client:" />
+      <TextField fx:id="dniCrearClient" alignment="CENTER" layoutX="152.0" layoutY="47.0" prefHeight="26.0" prefWidth="82.0" promptText="12345678P" />
+      <Label layoutX="247.0" layoutY="52.0" text="Nom:" />
+      <TextField fx:id="nomCrearClient" layoutX="282.0" layoutY="48.0" prefHeight="26.0" prefWidth="98.0" />
+      <Label layoutX="387.0" layoutY="52.0" text="Cognom 1:" />
+      <TextField fx:id="cognom1CrearClient" layoutX="448.0" layoutY="48.0" prefHeight="26.0" prefWidth="142.0" />
+      <Label layoutX="600.0" layoutY="52.0" text="Cognom 2:" />
+      <TextField fx:id="cognom2CrearClient" layoutX="666.0" layoutY="48.0" prefHeight="26.0" prefWidth="142.0" />
+      <Label layoutX="820.0" layoutY="53.0" text="Llicencia:" />
+      <TextField fx:id="llicenciaCrearClient" layoutX="874.0" layoutY="48.0" prefHeight="26.0" prefWidth="42.0" promptText="CPL" />
+      <Button layoutX="873.0" layoutY="18.0" mnemonicParsing="false" onAction="#insertClient" text="Crear" />
 
     </children></AnchorPane>

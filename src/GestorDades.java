@@ -36,8 +36,8 @@ public class GestorDades {
     public Employee getEmployeeByDni(String dniIn) throws SQLException {
         return e.getEmployeeByDni(conn, dniIn);
     }
-    public ArrayList<Plane> getPlaneByModel(String model) throws SQLException{
-        return p.getPlaneByModel(conn,model);
+    public ArrayList<Plane> getPlanesByModel(String model) throws SQLException{
+        return p.getPlanesByModel(model, conn);
     }
 
     public ArrayList<Employee> getAllEmployees(){

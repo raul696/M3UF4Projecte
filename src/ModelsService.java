@@ -19,11 +19,11 @@ public class ModelsService {
         return listModel;
     }
 
-    public void insertarModels( String modelName, String brand, short pax, String licenceType, float fuelCapacity, short maxSpeed, int consumPerHour, int maxTakeoffWeight, int emptyWeight, Connection conn) {
+    public void insertarModels(String modelName, String brand, short pax, String licenceType, float fuelCapacity, short maxSpeed, int consumPerHour, int maxTakeoffWeight, int emptyWeight, Connection conn) {
         try {
 
             String query = "INSERT INTO clients (modelName,brand,pax,licenceType,fuelCapacity,maxSpeed,consumPerHour,maxTakeoffWeight,emptyWeight) " +
-                    "VALUES ( ?,?,?,?,?,?,?,?,?)";
+                    "VALUES (?,?,?,?,?,?,?,?,?)";
 
 
             PreparedStatement stmt = conn.prepareStatement(query);
@@ -32,11 +32,11 @@ public class ModelsService {
             stmt.setString(2, brand);
             stmt.setShort(3, pax);
             stmt.setString(4, licenceType);
-            stmt.setFloat(5,fuelCapacity);
-            stmt.setShort(6,maxSpeed);
-            stmt.setInt(7,consumPerHour);
-            stmt.setInt(8,maxTakeoffWeight);
-            stmt.setInt(9,emptyWeight);
+            stmt.setFloat(5, fuelCapacity);
+            stmt.setShort(6, maxSpeed);
+            stmt.setInt(7, consumPerHour);
+            stmt.setInt(8, maxTakeoffWeight);
+            stmt.setInt(9, emptyWeight);
 
             stmt.execute();
 

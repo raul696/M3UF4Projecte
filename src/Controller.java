@@ -23,7 +23,6 @@ public class Controller implements Initializable {
     public Label nomCompletLabel;
     public Label dniLabel;
     // View Clients
-    public Button showAllClients;
     public TableView<Client> clientsTable;
     public TableColumn<Client, Integer> idClientCol;
     public TableColumn<Client, String> dniClientCol;
@@ -63,6 +62,13 @@ public class Controller implements Initializable {
     public TableColumn<Plane, String> modelCol;
     public TableColumn<Plane, String> mainColorCol;
     public TableColumn<Plane, Timestamp> horesVolCol;
+    public TextField modelTextInput;
+    public TextField dniCrearClient;
+    public TextField nomCrearClient;
+    public TextField cognom1CrearClient;
+    public TextField cognom2CrearClient;
+    public TextField llicenciaCrearClient;
+    public Label avionsErrorBox;
 
     StagesManager sl = new StagesManager();
     GestorDades g = new GestorDades();
@@ -81,12 +87,60 @@ public class Controller implements Initializable {
         avionsTable.setItems(planeData);
     }
 
+    public void getAvailablePlanes(){
+        initializePlanesTable();
+        String model = modelTextInput.getText();
+        ObservableList<Plane> planeData = FXCollections.observableArrayList();
+        ArrayList<Plane> planeList;
+        try {
+            planeList = g.getPlanesByModel(model);
+            planeData.addAll(planeList);
+            avionsTable.setItems(planeData);
+            avionsErrorBox.setText("Consulta completada");
+            avionsErrorBox.setStyle("-fx-background-color: #81F79F;");
+            avionsErrorBox.setVisible(true);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            avionsErrorBox.setText("El model no existeix o es incorrecte");
+            avionsErrorBox.setStyle("-fx-background-color: #ff9696;");
+            avionsErrorBox.setVisible(true);
+        }
+    }
+
     public void showAllClients(){
         initializeClientsTable();
         ObservableList<Client> clientData = FXCollections.observableArrayList();
         ArrayList<Client> clientList = g.getAllClients();
         clientData.addAll(clientList);
         clientsTable.setItems(clientData);
+    }
+
+    public void insertClient() throws SQLException {
+        String dniIn = dniCrearClient.getText();
+        if (Utils.checkDNI(dniIn)){
+            if (g.getClientByDni(dniIn) == null){
+                try {
+                    g.insertClientsInfo(dniCrearClient.getText(),nomCrearClient.getText(),cognom1CrearClient.getText(),
+                            cognom2CrearClient.getText(),llicenciaCrearClient.getText());
+                    clientsErrorBox.setText("Client afegit correctament");
+                    clientsErrorBox.setStyle("-fx-background-color: #81F79F;");
+                    clientsErrorBox.setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    clientsErrorBox.setText("El client no s'ha creat, comprova que les dades siguin correctes");
+                    clientsErrorBox.setStyle("-fx-background-color: #ff9696;");
+                    clientsErrorBox.setVisible(true);
+                }
+            }else {
+                clientsErrorBox.setText("El client no s'ha creat, ja existeix un client amb aquest DNI");
+                clientsErrorBox.setStyle("-fx-background-color: #ff9696;");
+                clientsErrorBox.setVisible(true);
+            }
+        }else {
+            clientsErrorBox.setText("El format del DNI no es correcte");
+            clientsErrorBox.setStyle("-fx-background-color: #ff9696;");
+            clientsErrorBox.setVisible(true);
+        }
     }
 
     public void getClientInfo() throws SQLException {

@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 
 <AnchorPane prefHeight="701.0" prefWidth="1000.0" translateZ="1.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
     <children>
@@ -14,5 +15,13 @@
                 <TableColumn fx:id="horesVolCol" prefWidth="107.20000000000005" text="Hores de vol" />
             </columns>
         </TableView>
-      <Button fx:id="showAllPlanes" onAction="#showAllPlanes" layoutX="132.0" layoutY="289.0" mnemonicParsing="false" text="Mostrar tots els avions" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#7dc0ff94" height="66.0" layoutX="132.0" layoutY="26.0" stroke="#70a2ff" strokeType="INSIDE" width="735.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#7dc0ff94" height="66.0" layoutX="132.0" layoutY="119.0" stroke="#70a2ff" strokeType="INSIDE" width="326.0" />
+        <Label layoutX="149.0" layoutY="126.0" text="Mostrar avions actualment disponibles:" />
+        <Label layoutX="149.0" layoutY="157.0" text="Model d'avió:" />
+        <TextField fx:id="modelTextInput" alignment="CENTER" layoutX="225.0" layoutY="152.0" prefHeight="26.0" prefWidth="127.0" promptText="747-100" />
+        <Button layoutX="382.0" layoutY="131.0" mnemonicParsing="false" onAction="#getAvailablePlanes" text="Consultar" />
+
+        <Button fx:id="showAllPlanes" layoutX="132.0" layoutY="289.0" mnemonicParsing="false" onAction="#showAllPlanes" text="Mostrar tots els avions" />
+        <Label fx:id="avionsErrorBox" layoutX="276.0" layoutY="288.0" prefHeight="26.0" prefWidth="427.0" style="-fx-background-color: #ff9696;" visible="false" />
     </children></AnchorPane>

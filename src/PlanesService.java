@@ -1,7 +1,7 @@
-import java.sql.*;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.sql.Connection;
+import java.sql.*;
+import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class PlanesService {
 
@@ -15,7 +15,7 @@ public class PlanesService {
                 listPlane.add(p);
             }
         } catch (Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
         for (Plane p :listPlane
              ) {
@@ -23,29 +23,34 @@ public class PlanesService {
         }
         return listPlane;
     }
-    public ArrayList<Plane> getPlaneByModel(Connection conn,String model) throws SQLException{
+    public ArrayList<Plane> getPlanesByModel(String model, Connection conn){
         ArrayList<Plane> listPlane = new ArrayList<>();
         try {
 
-            String query  = " SELECT * FROM planes p" +
-                    " INNER JOIN reservations r ON p.plane_id = r.plane_id" +
-                    " WHERE p.model = ? AND p.plane_id IN (SELECT r.plane_id" +
-                    " FROM reservations r"+
-                    " WHERE ? NOT BETWEEN r.start_date and r.end_date);" ;
+            String query  = "SELECT * " +
+                    "FROM planes " +
+                    "WHERE model = ? " +
+                    "AND (plane_id NOT IN (SELECT plane_id " +
+                    "FROM reservations " +
+                    "WHERE ? BETWEEN start_date AND end_date) " +
+                    "OR (model = ? AND plane_id NOT IN (SELECT plane_id FROM reservations)))" ;
+
+            System.out.println(model);
 
             PreparedStatement stmt = conn.prepareStatement(query);
+            stmt.setString(1, model);
+            stmt.setString(2, String.valueOf(LocalDate.now()));
+            stmt.setString(3, model);
 
-            stmt.setString(1,model);
-            stmt.setTimestamp(2, Timestamp.valueOf(LocalDateTime.now()));
-
-            ResultSet rs = stmt.executeQuery(String.valueOf(stmt));
+            System.out.println(query);
+            ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
                 Plane p = new Plane(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5));
                 listPlane.add(p);
             }
         } catch (Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
         for (Plane p :listPlane
         ) {
@@ -57,7 +62,7 @@ public class PlanesService {
     public void insertPlane(String registrationCode, String model, String mainColor, int hoursFlied, Connection conn) {
         try {
 
-            String query = "INSERT INTO planes ( registrationCode, model, mainColor, hoursFlied) " +
+            String query = "INSERT INTO planes (registrationCode, model, mainColor, hoursFlied) " +
                     "VALUES ( ?,?,?,?)" ;
 
 
@@ -72,7 +77,7 @@ public class PlanesService {
 
         }
         catch(Exception e){
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
     public void deletePlane(String registrationCode, Connection conn){
@@ -89,7 +94,7 @@ public class PlanesService {
 
         }
         catch(Exception e){
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
 }
