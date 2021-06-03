@@ -2,12 +2,13 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 
 <AnchorPane prefHeight="701.0" prefWidth="1000.0" translateZ="1.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
     <children>
         <TableView fx:id="clientsTable" layoutX="70.0" layoutY="332.0" prefHeight="318.0" prefWidth="862.0">
             <columns>
-                <TableColumn fx:id="idClientCol" prefWidth="108.20001220703125" text="ID Person.Client" />
+                <TableColumn fx:id="idClientCol" prefWidth="108.20001220703125" text="ID Client" />
                 <TableColumn fx:id="dniClientCol" prefWidth="108.20001220703125" text="DNI" />
                 <TableColumn fx:id="nomClientCol" prefWidth="154.39999389648438" text="Nom" />
                 <TableColumn fx:id="cognom1ClientCol" prefWidth="191.39999389648438" text="Cognom 1" />
@@ -16,4 +17,11 @@
             </columns>
         </TableView>
       <Button fx:id="showAllClients" layoutX="70.0" layoutY="287.0" mnemonicParsing="false" onAction="#showAllClients" text="Mostra tots els clients" />
+        <Label fx:id="clientsErrorBox" layoutX="254.0" layoutY="284.0" prefHeight="26.0" prefWidth="427.0" style="-fx-background-color: #ff9696;" visible="false" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#7dc0ff94" height="66.0" layoutX="69.0" layoutY="98.0" stroke="#70a2ff" strokeType="INSIDE" width="326.0" />
+        <Label layoutX="86.0" layoutY="105.0" text="Mostrar informació d'un client:" />
+        <Label layoutX="86.0" layoutY="136.0" text="DNI Client:" />
+        <TextField fx:id="dniTextInput" alignment="CENTER" layoutX="148.0" layoutY="131.0" prefHeight="26.0" prefWidth="157.0" promptText="DNI" />
+        <Button fx:id="getClientInfo" layoutX="320.0" layoutY="110.0" mnemonicParsing="false" onAction="#getClientInfo" text="Consultar" />
+
     </children></AnchorPane>

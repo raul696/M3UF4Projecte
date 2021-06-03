@@ -38,4 +38,15 @@ public class ReservationService {
             System.out.println(e);
         }
     }
+
+    public ArrayList<Reservation> getReservationsByClientDNI(String dni, Connection conn) throws SQLException {
+        ArrayList<Reservation> listReservation = new ArrayList<>();
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM reservations r INNER JOIN clients c ON r.client_id = c.client_id WHERE c.dni=\"" + dni + '"');
+            while (rs.next()) {
+                Reservation r = new Reservation(rs.getInt(1), rs.getInt(2), rs.getInt(3),rs.getTimestamp(4),rs.getTimestamp(5));
+                listReservation.add(r);
+            }
+        return listReservation;
+    }
 }

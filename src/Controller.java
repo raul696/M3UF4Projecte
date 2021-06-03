@@ -31,6 +31,7 @@ public class Controller implements Initializable {
     public TableColumn<Client, String> cognom1ClientCol;
     public TableColumn<Client, String> cognom2ClientCol;
     public TableColumn<Client, String> llicenciaClientCol;
+    public Label clientsErrorBox;
     // View Empleats
     public TableView<Employee> empleatsTable;
     public TableColumn<Employee, Integer> idEmpleatCol;
@@ -45,6 +46,7 @@ public class Controller implements Initializable {
     public TableColumn<Reservation, Integer> idAvioReservaCol;
     public TableColumn<Reservation, Timestamp> dataIniciReservaCol;
     public TableColumn<Reservation, Timestamp> dataFiReservaCol;
+    public TextField dniTextInput;
     // Reserves insert
     public TextField idClientReservaIns;
     public TextField idAvioReservaIns;
@@ -87,6 +89,31 @@ public class Controller implements Initializable {
         clientsTable.setItems(clientData);
     }
 
+    public void getClientInfo() throws SQLException {
+        String dniIn = dniTextInput.getText();
+        if (Utils.checkDNI(dniIn)){
+            Client client = null;
+            try {
+                client = g.getClientByDni(dniIn);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            if (client == null){
+                clientsErrorBox.setText("DNI de Client invalid");
+                clientsErrorBox.setVisible(true);
+            }else {
+                initializeClientsTable();
+                ObservableList<Client> clientData = FXCollections.observableArrayList();
+                Client clientInfo = g.getClientByDni(dniIn);
+                clientData.addAll(clientInfo);
+                clientsTable.setItems(clientData);
+            }
+        }else {
+            clientsErrorBox.setText("Format de DNI incorrecte");
+            clientsErrorBox.setVisible(true);
+        }
+    }
+
     public void showAllEmployee(){
         initializeEmpleatsTable();
         ObservableList<Employee> employeeData = FXCollections.observableArrayList();
@@ -95,6 +122,30 @@ public class Controller implements Initializable {
         empleatsTable.setItems(employeeData);
     }
 
+    public void getReservationsByClientDNI() throws SQLException {
+        String dniIn = dniTextInput.getText();
+        if (Utils.checkDNI(dniIn)){
+            Client client = null;
+            try {
+                client = g.getClientByDni(dniIn);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            if (client == null){
+                    reservesErrorBox.setText("DNI de Client invalid");
+                    reservesErrorBox.setVisible(true);
+                }else {
+                    initializeReservesTable();
+                    ObservableList<Reservation> reservationsData = FXCollections.observableArrayList();
+                    ArrayList<Reservation> reservationsList = g.getReservationsByClientDNI(dniIn);
+                    reservationsData.addAll(reservationsList);
+                    reservesTable.setItems(reservationsData);
+                }
+        }else {
+            reservesErrorBox.setText("Format de DNI incorrecte");
+            reservesErrorBox.setVisible(true);
+        }
+    }
     public void showAllReservations(){
         initializeReservesTable();
         ObservableList<Reservation> reservationsData = FXCollections.observableArrayList();

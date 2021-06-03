@@ -32,4 +32,9 @@
       <Button layoutX="833.0" layoutY="27.0" mnemonicParsing="false" onAction="#insertReservation" text="Crear" />
       <Label layoutX="86.0" layoutY="22.0" text="Crear Reserves:" />
       <Label fx:id="reservesErrorBox" layoutX="254.0" layoutY="284.0" prefHeight="26.0" prefWidth="427.0" style="-fx-background-color: #ff9696;" visible="false" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#7dc0ff94" height="66.0" layoutX="69.0" layoutY="98.0" stroke="#70a2ff" strokeType="INSIDE" width="326.0" />
+      <Label layoutX="86.0" layoutY="105.0" text="Mostrar reserves per Client:" />
+      <Label layoutX="86.0" layoutY="136.0" text="DNI Client:" />
+        <TextField fx:id="dniTextInput" alignment="CENTER" layoutX="148.0" layoutY="131.0" prefHeight="26.0" prefWidth="157.0" promptText="DNI" />
+      <Button layoutX="319.0" layoutY="110.0" mnemonicParsing="false" onAction="#getReservationsByClientDNI" text="Consultar" />
     </children></AnchorPane>

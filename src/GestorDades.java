@@ -115,6 +115,10 @@ public class GestorDades {
     public void insertReservationsInfo(int clientId, int planeId, Timestamp startDate, Timestamp endDate) throws SQLException {
             r.insertReservation( clientId, planeId, startDate, endDate, conn);
     }
+
+    public ArrayList<Reservation> getReservationsByClientDNI(String dni) throws SQLException {
+        return r.getReservationsByClientDNI(dni, conn);
+    }
     public void deleteClient(String dni) throws SQLException{
         if (Utils.checkDNI(dni)) {
                 c.deleteClient(dni, conn);
@@ -122,7 +126,6 @@ public class GestorDades {
                 System.out.println("Les dades son incorrectes");
     }
     public void deleteEmpleat(String dni) throws SQLException{
-        boolean correcto = true;
         if (Utils.checkDNI(dni)){
             e.deleteEmpleat(dni, conn);
         } else
