@@ -146,9 +146,9 @@ public class ProjectePOO {
                         System.out.println("Introdueix la ID de l'avió");
                         planeId = in.nextInt();
                         System.out.println("Introdueix la data de recollida (YYYY-MM-DD 00:00)");
-                        startDate = Timestamp.valueOf(in.next());
+                        startDate = Timestamp.valueOf(in.nextLine());
                         System.out.println("Introdueix la data de entrega (YYYY-MM-DD 00:00)");
-                        endDate = Timestamp.valueOf(in.next());
+                        endDate = Timestamp.valueOf(in.nextLine());
                         g.insertReservationsInfo(clientId,planeId,startDate,endDate);
                     }
                     break;
