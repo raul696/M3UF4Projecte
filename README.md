@@ -101,7 +101,23 @@ Obtenir empleats consulta, ens retorna totes les dades que tenim a la taula empl
 
 ![Reserva BDD](https://github.com/DanielDPM/M3UF4Projecte/blob/main/images/EsborrarReservesBDD.PNG)
 
-## 2-Vídeo
+## 2-Interficie gráfica
+### Accés a l'apliació amb un login simple amb DNI
+
+![login](/images/login.png)
+
+Totes les pestanyes inclouen la taula amb la funció de "Mostrat tots" com es veu a totes les imatges següents, les imatges a continuació són només dels apartats que tenen funcionalitats addicionals.
+
+### Cerca de reserves per al DNI d'un client
+![cercaReserves](/images/reservesCercar.png)
+
+### Cerca d'avions disponibles per model (No reservats actualment)
+![avionsDisponibles](/images/avionsDisponibles.png)
+
+### Mostrar tots els clients existents
+![clientsExistents](/images/clientsMostrarTots.png)
+
+## 3-Vídeo
 
 https://drive.google.com/file/d/1hPO-so587mMtNYDz3wHaRzhqG-c1EUbV/view?usp=sharing
 
