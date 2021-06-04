@@ -5,6 +5,12 @@ import java.util.ArrayList;
 
 public class PlanesService {
 
+    /**
+     * Obté tots els avions de la base de dades
+     * @param conn Connexió amb la base de dades
+     * @return Retorna un ArrayList de objectes Plane
+     * @throws SQLException
+     */
     public ArrayList<Plane> getAllPlanes(Connection conn) throws SQLException{
         ArrayList<Plane> listPlane = new ArrayList<>();
         try {
@@ -17,12 +23,15 @@ public class PlanesService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        for (Plane p :listPlane
-             ) {
-            System.out.println(p);
-        }
         return listPlane;
     }
+
+    /**
+     * Obté tots els avions d'un model específic
+     * @param model
+     * @param conn Connexió a la base de dades
+     * @return Retorna un ArrayList de objectes Plane
+     */
     public ArrayList<Plane> getPlanesByModel(String model, Connection conn){
         ArrayList<Plane> listPlane = new ArrayList<>();
         try {
@@ -59,6 +68,14 @@ public class PlanesService {
         return listPlane;
     }
 
+    /**
+     * Insereix un avió a la base de dades amb la informació proporcionada
+     * @param registrationCode
+     * @param model
+     * @param mainColor
+     * @param hoursFlied
+     * @param conn
+     */
     public void insertPlane(String registrationCode, String model, String mainColor, int hoursFlied, Connection conn) {
         try {
 
@@ -80,6 +97,12 @@ public class PlanesService {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Elimina un avió amb el codi de registre especificat
+     * @param registrationCode
+     * @param conn
+     */
     public void deletePlane(String registrationCode, Connection conn){
         try {
 

@@ -5,6 +5,13 @@ import java.util.ArrayList;
 
 public class ClientsService {
 
+    /**
+     * Fa una consulta a la base de dades per obtenir tots els clients i retorna un ArrayList de objectes Client
+     * @param conn Connexió amb la base de dades
+     * @return listClient
+     * @throws SQLException
+     */
+
     public ArrayList<Client> getAllClients(Connection conn) throws SQLException {
         ArrayList<Client> listClient = new ArrayList<>();
         try {
@@ -20,6 +27,13 @@ public class ClientsService {
         return listClient;
     }
 
+    /**
+     * Consulta la base de dades per retornar el client que tingui el DNI especificat, en cas de que no existeixi retornará null
+     * @param conn Connexió a la base de dades
+     * @param dni DNI per cercar client
+     * @return Objecte Client
+     * @throws SQLException
+     */
     public Client getClientByDni(Connection conn, String dni) throws SQLException {
         Client c = null;
         try {
@@ -37,6 +51,15 @@ public class ClientsService {
         return c;
     }
 
+    /**
+     * Inserta nous clients a la base de dades amb la informació introduïda
+     * @param dni
+     * @param name
+     * @param surname1
+     * @param surname2
+     * @param licence
+     * @param conn
+     */
     public void insertClients(String dni, String name, String surname1, String surname2, String licence, Connection conn) {
         try {
 
@@ -59,6 +82,13 @@ public class ClientsService {
             System.out.println(e);
         }
     }
+
+    /**
+     * Elimina el client de la base de dades amb el DNI especificat
+     * @param dni
+     * @param conn Connexió amb la base de dades
+     */
+
     public void deleteClient(String dni, Connection conn){
         try {
 

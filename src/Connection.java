@@ -5,6 +5,12 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class Connection {
+
+    /**
+     * Funció que obre la connexió amb la base de dades, es crida només una vegada al inici del programa
+     * @return Retorna la connexió
+     * @throws SQLException
+     */
     public static java.sql.Connection openConnection() throws SQLException {
         Properties prop = new Properties();
         try {

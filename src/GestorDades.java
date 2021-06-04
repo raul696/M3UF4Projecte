@@ -16,8 +16,7 @@ public class GestorDades {
 
     public ArrayList<Model> getAllModels() {
         try {
-            ArrayList<Model> listModel = m.getAllModels(conn);
-            return listModel;
+            return m.getAllModels(conn);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -72,16 +71,12 @@ public class GestorDades {
     }
 
     public void insertClientsInfo(String dni, String name, String surname1, String surname2, String licence) throws SQLException {
-        boolean correcto = true;
         if (name.length() <= 45 && surname1.length() <= 45 && surname2.length() <= 45 && licence.length() <= 4) {
             if (Utils.checkDNI(dni)) {
-            } else {
-                correcto = false;
-            }
-            if (correcto) {
                 c.insertClients(dni, name, surname1, surname2, licence, conn);
-            } else
+            } else {
                 System.out.println("Les dades son incorrectes");
+            }
         }
     }
 
@@ -116,7 +111,7 @@ public class GestorDades {
     }
 
     public void insertReservationsInfo(int clientId, int planeId, Timestamp startDate, Timestamp endDate) throws SQLException {
-            r.insertReservation( clientId, planeId, startDate, endDate, conn);
+        r.insertReservation( clientId, planeId, startDate, endDate, conn);
     }
 
     public ArrayList<Reservation> getReservationsByClientDNI(String dni) throws SQLException {
@@ -124,9 +119,9 @@ public class GestorDades {
     }
     public void deleteClient(String dni) throws SQLException{
         if (Utils.checkDNI(dni)) {
-                c.deleteClient(dni, conn);
-            } else
-                System.out.println("Les dades son incorrectes");
+            c.deleteClient(dni, conn);
+        } else
+            System.out.println("Les dades son incorrectes");
     }
     public void deleteEmpleat(String dni) throws SQLException{
         if (Utils.checkDNI(dni)){

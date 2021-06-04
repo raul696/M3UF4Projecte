@@ -4,6 +4,13 @@ import java.util.ArrayList;
 
 
 public class ModelsService {
+
+    /**
+     * Obté tots els models d'avió de la base de dades
+     * @param conn Connexió amb la base de dades
+     * @return ArrayList de objectes Model
+     * @throws SQLException
+     */
     public ArrayList<Model> getAllModels(Connection conn) throws SQLException {
         ArrayList<Model> listModel = new ArrayList<>();
         try {
@@ -19,6 +26,19 @@ public class ModelsService {
         return listModel;
     }
 
+    /**
+     * Inserta un model d'avió a la base de dades amb la informació proporcionada
+     * @param modelName
+     * @param brand
+     * @param pax
+     * @param licenceType
+     * @param fuelCapacity
+     * @param maxSpeed
+     * @param consumPerHour
+     * @param maxTakeoffWeight
+     * @param emptyWeight
+     * @param conn Connexió a la base de dades
+     */
     public void insertarModels(String modelName, String brand, short pax, String licenceType, float fuelCapacity, short maxSpeed, int consumPerHour, int maxTakeoffWeight, int emptyWeight, Connection conn) {
         try {
 
@@ -45,6 +65,12 @@ public class ModelsService {
 
         }
     }
+
+    /**
+     * Elimina un model amb el nom especificat de la base de dades
+     * @param modelName
+     * @param conn Connexió amb la base de dades
+     */
     public void deleteModel(String modelName, Connection conn){
         try {
 

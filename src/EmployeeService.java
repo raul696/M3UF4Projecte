@@ -3,6 +3,12 @@ import java.sql.Connection;
 import java.util.ArrayList;
 
 public class EmployeeService {
+    /**
+     * Obté tots els empleats de la base de dades i retorna un ArrayList de objectes Employee
+     * @param conn connexió amb la base de dades
+     * @return
+     * @throws SQLException
+     */
     public ArrayList<Employee> getAllEmployees(Connection conn) throws SQLException {
         ArrayList<Employee> listEmployees = new ArrayList<>();
         try {
@@ -18,6 +24,13 @@ public class EmployeeService {
         return listEmployees;
     }
 
+    /**
+     * Obté la informació d'un empleat amb el DNI especificat
+     * @param conn Connexió amb la base de dades
+     * @param dni DNI per a la cerca
+     * @return
+     * @throws SQLException
+     */
     public Employee getEmployeeByDni(Connection conn, String dni) throws SQLException {
         Employee employee = null;
         try {
@@ -34,6 +47,14 @@ public class EmployeeService {
         return employee;
     }
 
+    /**
+     * Inserta un empleat a la base de dades amb la informació proporcionada
+     * @param dni
+     * @param name
+     * @param surname1
+     * @param surname2
+     * @param conn Connexió amb la base de dades
+     */
     public void insertEmployees(String dni, String name, String surname1, String surname2, Connection conn) {
         try {
 
@@ -54,6 +75,12 @@ public class EmployeeService {
             System.out.println(ex);
         }
     }
+
+    /**
+     * Elimina un empleat de la base de dades amb el DNI especificat
+     * @param dni
+     * @param conn
+     */
     public void deleteEmpleat(String dni, Connection conn){
         try {
 

@@ -4,6 +4,13 @@ import java.util.ArrayList;
 
 
 public class ReservationService {
+
+    /**
+     * Obté totes les reserves de la base de dades
+     * @param conn
+     * @return Retorna un ArrayList d'objectes Reservation
+     * @throws SQLException
+     */
     public ArrayList<Reservation> getAllReservations(Connection conn) throws SQLException {
         ArrayList<Reservation> listReservation = new ArrayList<>();
         try {
@@ -14,10 +21,19 @@ public class ReservationService {
                 listReservation.add(r);
             }
         } catch (Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
         return listReservation;
     }
+
+    /**
+     * Inserta una reserva a la base de dades amb la informació proporcionada
+     * @param clientId
+     * @param planeId
+     * @param startDate
+     * @param endDate
+     * @param conn
+     */
     public void insertReservation( int clientId, int planeId, Timestamp startDate, Timestamp endDate,Connection conn) {
         try {
 
@@ -39,6 +55,31 @@ public class ReservationService {
         }
     }
 
+    /**
+     * Elimina una reserva amb el ID especificat de la base de dades
+     * @param reservation_id
+     * @param conn
+     */
+    public void deleteReservation(int reservation_id, Connection conn){
+        try {
+            String query = "DELETE FROM reservations" + " WHERE reservation_id = ?" ;
+            PreparedStatement stmt = conn.prepareStatement(query);
+
+            stmt.setInt(1,reservation_id);
+            stmt.execute();
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }
+
+    /**
+     * Obté totes les reserves d'un client especificant el seu DNI
+     * @param dni
+     * @param conn
+     * @return Retorna un ArrayList de objectes Reservation
+     * @throws SQLException
+     */
     public ArrayList<Reservation> getReservationsByClientDNI(String dni, Connection conn) throws SQLException {
         ArrayList<Reservation> listReservation = new ArrayList<>();
             Statement stmt = conn.createStatement();
