@@ -111,3 +111,19 @@ Hem decidit crear una part del menú que sigui consultes per poder consultar tot
 
 
 ## 4-VCS
+
+## 5-UML
+
+1-Diagrama de clases versió 1
+
+[Link Captura Diagrama Clases Versio 1](https://github.com/DanielDPM/M3UF4Projecte/blob/main/images/diagramaClases.V1.png).
+
+2-Diagrama de clase versió 2
+
+[Link Captura Diagrama Clases Versio 2](https://github.com/DanielDPM/M3UF4Projecte/blob/main/images/diagramaClases.V2.png).
+
+3-Diagrama d'Us
+
+[Link Captura Diagrama d'Us](https://github.com/DanielDPM/M3UF4Projecte/blob/main/images/diagramaUs.png).
+
+
