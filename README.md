@@ -60,11 +60,11 @@ Obtenir empleats consulta, ens retorna totes les dades que tenim a la taula empl
 
 5-Inserim una reserva a la base de dades
 
-![Inserir reserva]()
+![Inserir reserva](https://github.com/DanielDPM/M3UF4Projecte/blob/main/images/InsertarReservaIIJ.png)
 
 5-Reserva afegida a la base de dades
 
-![Reserva BDD]()
+![Reserva BDD](https://github.com/DanielDPM/M3UF4Projecte/blob/main/images/InsertarReservaBDD.png)
 
 
 ### 3-Esborrar Dades
@@ -111,6 +111,8 @@ Hem decidit crear una part del menú que sigui consultes per poder consultar tot
 
 
 ## 4-VCS
+
+A l'hora d'utilitzar GitHub ens hem organitzat de manera que cadascú treballava desde el seu ordinador la seva feina i la pujava al git, tenim dues branques, la main a la cual está tot el programa en mode IIJ i la branca javaFX on ha estat treballant en Dani per poder fer la part gráfica del programa, no vam tenir cap problema a l'hora d'utilitzar GitHub
 
 ## 5-UML
 
