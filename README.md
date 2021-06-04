@@ -103,6 +103,8 @@ Obtenir empleats consulta, ens retorna totes les dades que tenim a la taula empl
 
 ## 2-Vídeo
 
+https://drive.google.com/file/d/1hPO-so587mMtNYDz3wHaRzhqG-c1EUbV/view?usp=sharing
+
 ## 3-POO
 
 Hem decidit crear una part del menú que sigui consultes per poder consultar totes les dades que tenim de la base de dades separat per taules, hem creat també un altre part que sigui tant per afegir com per esborrar dades de la base i depenent de la taula que volguem esborrar la seleccionem i ens demana diferents coses 
