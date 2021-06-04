@@ -108,7 +108,7 @@ Obtenir empleats consulta, ens retorna totes les dades que tenim a la taula empl
 
 Totes les pestanyes inclouen la taula amb la funció de "Mostrat tots" com es veu a totes les imatges següents, les imatges a continuació són només dels apartats que tenen funcionalitats addicionals.
 
-### Cerca de reserves per al DNI d'un client
+### Cerca de reserves per el DNI d'un client
 ![cercaReserves](/images/reservesCercar.png)
 
 ### Cerca d'avions disponibles per model (No reservats actualment)
