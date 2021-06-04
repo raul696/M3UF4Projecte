@@ -44,11 +44,11 @@ Obtenir empleats consulta, ens retorna totes les dades que tenim a la taula empl
 
 3-Inserim un model d'avió a la base de dades 
 
-![Inserir Models]()
+![Inserir Models](https://github.com/DanielDPM/M3UF4Projecte/blob/main/images/InsertarModelIIJ.png)
 
 3-Model d'avió afegit a la base de dades
 
-![Models BDD]()
+![Models BDD](https://github.com/DanielDPM/M3UF4Projecte/blob/main/images/InsertarModeBDD.png)
 
 4-Inserim avions a la base de dades
 
