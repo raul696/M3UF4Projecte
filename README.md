@@ -114,7 +114,7 @@ Hem decidit crear una part del menú que sigui consultes per poder consultar tot
 
 ## 4-VCS
 
-A l'hora d'utilitzar GitHub ens hem organitzat de manera que cadascú treballava desde el seu ordinador la seva feina i la pujava al git, tenim dues branques, la main a la cual está tot el programa en mode IIJ i la branca javaFX on ha estat treballant en Dani per poder fer la part gráfica del programa, no vam tenir cap problema a l'hora d'utilitzar GitHub
+A l'hora d'utilitzar GitHub ens hem organitzat de manera que cadascú treballava en diferents funcions que habíem discutit i repartit i s'anaven pujan a GitHub. Tenim dues branques, la main on s'anaven afegint la majoria de les funcionalitats programades junt a un codi per a l'utilització i testeig per consola i la branca javaFX on ha estat treballant en Daniel fent la part gráfica del programa incorporant les funcionalitats programades i afegides a la branca principal, finalment juntant les dos branques per a crear la versió final. No vam tenir cap problema a l'hora d'utilitzar GitHub.
 
 ## 5-UML
 
